@@ -723,22 +723,48 @@
     font-size: 11px;
   }
 
-  /* Compliance-grade rate disclosure footnote below the calculator.
-     Required under Regulation Z when advertising a specific APR
-     or payment example. Small type, legal-friendly phrasing. */
-  .rate-disclosure-footnote {
+  /* Collapsible rate disclosure. Compliance requires the text be on
+     the page but the default-collapsed state keeps the calculator
+     looking clean. Users who want the fine print can open it. */
+  .rate-disclosure {
     margin-top: 18px;
-    padding: 14px 16px;
+    border-top: 1px solid var(--gray-50);
+    padding-top: 16px;
+  }
+  .rate-disclosure-summary {
+    list-style: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--gray-400);
+    transition: color 0.2s ease;
+    padding: 4px 0;
+  }
+  .rate-disclosure-summary:hover { color: var(--brand-700); }
+  .rate-disclosure-summary::-webkit-details-marker { display: none; }
+  .rate-disclosure-summary::marker { content: ''; }
+  .rd-chevron {
+    color: var(--gray-300);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+  .rate-disclosure[open] .rd-chevron {
+    transform: rotate(90deg);
+    color: var(--brand-700);
+  }
+  .rate-disclosure-body {
+    margin-top: 10px;
+    padding: 12px 14px;
     background: var(--gray-25);
     border-radius: var(--radius-sm);
     font-family: 'Figtree', sans-serif;
     font-size: 11px;
     line-height: 1.55;
     color: var(--gray-500);
-  }
-  .rate-disclosure-footnote strong {
-    color: var(--gray-700);
-    font-weight: 600;
   }
 
   .config-cta-row {
@@ -1700,6 +1726,81 @@
     color: var(--gray-500);
   }
 
+  /* Speed feature: large "60 seconds" visual claim below the activity
+     indicator. Gives the most persuasive claim on the page the
+     visual weight it deserves. */
+  .speed-feature {
+    margin-top: 24px;
+    padding: 24px 26px;
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+  .speed-feature::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 260px 140px at 0% 50%, rgba(135, 41, 250, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .speed-feature > * { position: relative; }
+  .sf-numbers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 88px;
+    padding-right: 22px;
+    border-right: 1px solid var(--gray-50);
+  }
+  .sf-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 54px;
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: var(--grad-a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .sf-unit {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-top: 4px;
+  }
+  .sf-text h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--brand-800);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .sf-text p {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    .speed-feature { padding: 20px; gap: 18px; }
+    .sf-num { font-size: 44px; }
+    .sf-numbers { min-width: 70px; padding-right: 18px; }
+  }
+
   /* ============================================================
      NEW: Configurator mode toggle
      ============================================================ */
@@ -1841,21 +1942,13 @@
     font-weight: 600;
   }
 
-  /* Primary CTA alternate state when user is in insurance-only flow */
+  /* Primary CTA alternate state when redirecting to MasterCover for old vessels */
   .btn-primary.insurance-mode {
     background: linear-gradient(254.25deg, #F59E0B 0%, #D97706 100%);
   }
   .btn-primary.insurance-mode:hover {
     background: linear-gradient(254.25deg, #D97706 0%, #B45309 100%);
   }
-
-  /* Step 2 mode visibility: show either loan or insurance variants */
-  .insurance-mode-only { display: none; }
-  body.insurance-only .loan-mode-only { display: none; }
-  body.insurance-only .insurance-mode-only { display: block; }
-  body.insurance-only .insurance-mode-only.btn { display: inline-flex; }
-  body.insurance-only .field.insurance-mode-only { display: block; }
-  body.insurance-only .step-trust-note.insurance-mode-only { display: flex; }
 
   /* ============================================================
      UPDATED: Comparison band prominence
@@ -2838,10 +2931,6 @@
           No impact to credit score
         </span>
         <span class="item">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-          Results in around 60 seconds
-        </span>
-        <span class="item">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
           Loans from $50,000 to $50,000,000
         </span>
@@ -2856,6 +2945,20 @@
             <span class="ai-num" id="activity-count">194</span>
             <span class="ai-label">rate checks in the last hour</span>
           </div>
+        </div>
+      </div>
+
+      <!-- Speed feature: elevated from the micro-trust row to its own
+           moment, since "60 seconds" is the single most persuasive
+           claim on the page for buyers who expect loan apps to take days. -->
+      <div class="speed-feature">
+        <div class="sf-numbers">
+          <span class="sf-num">60</span>
+          <span class="sf-unit">seconds</span>
+        </div>
+        <div class="sf-text">
+          <h4>From inputs to lender match.</h4>
+          <p>Most applications complete in around a minute. Soft credit check only, so nothing hits your report until you select a lender.</p>
         </div>
       </div>
     </div>
@@ -2958,10 +3061,10 @@
           </div>
         </div>
 
-        <!-- Vessel age warning: shows only when year < 1996 (30+ years old) -->
+        <!-- Vessel age warning: shows only when year < current - 30 (30+ years old) -->
         <div class="vessel-age-warning" id="vessel-age-warning">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-          <span><strong>Vessels older than 30 years do not qualify for financing.</strong> You can still request an insurance quote for older vessels.</span>
+          <span><strong>Vessels older than 30 years do not qualify for financing.</strong> You can still get insurance through MasterCover.</span>
         </div>
 
         <div class="slider-row">
@@ -3005,10 +3108,17 @@
 
         <!-- TILA-style rate disclosure for compliance. Required under
              Regulation Z whenever an advertisement shows a specific
-             rate or payment number. -->
-        <div class="rate-disclosure-footnote">
-          <strong>Rate disclosure.</strong> Rates and payments shown are representative examples based on a borrower with excellent credit (FICO 760+), a 20 percent down payment, and current market conditions as of today. Starting APR of 5.99 percent is available to borrowers meeting top-tier credit and eligibility requirements. The industry typical rate of 7.20 percent reflects the average yacht loan APR reported for 2025 by major marine lender surveys. Actual rate and monthly payment depend on your credit profile, loan amount, term, vessel age, down payment, and underwriting by the matching lender. EasyFund is a lender matching platform and does not itself lend money. All loans are originated by partner lenders in the EasyFund network. Estimate does not include taxes, insurance, registration, or fees.
-        </div>
+             rate or payment number. Collapsed by default so the
+             calculator does not feel legalistic. -->
+        <details class="rate-disclosure">
+          <summary class="rate-disclosure-summary">
+            <svg class="rd-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+            Rate assumptions and disclosure
+          </summary>
+          <div class="rate-disclosure-body">
+            Rates and payments shown are representative examples based on a borrower with excellent credit (FICO 760+), a 20 percent down payment, and current market conditions as of today. Starting APR of 5.99 percent is available to borrowers meeting top-tier credit and eligibility requirements. The industry typical rate of 7.20 percent reflects the average yacht loan APR reported for 2025 by major marine lender surveys. Actual rate and monthly payment depend on your credit profile, loan amount, term, vessel age, down payment, and underwriting by the matching lender. EasyFund is a lender matching platform and does not itself lend money. All loans are originated by partner lenders in the EasyFund network. Estimate does not include taxes, insurance, registration, or fees.
+          </div>
+        </details>
       </div>
     </div>
   </div>
@@ -3469,13 +3579,8 @@
       </div>
     </div>
 
-    <!-- Default loan-flow headline (hidden when insurance-only is active) -->
-    <h2 class="h2 step-headline loan-mode-only">A few details about you.</h2>
-    <p class="step-sub loan-mode-only">So we can run your match and send the results to you. No salesperson will cold call you.</p>
-
-    <!-- Insurance-only headline (visible only when vessel is too old for financing) -->
-    <h2 class="h2 step-headline insurance-mode-only">Let us send you an insurance quote.</h2>
-    <p class="step-sub insurance-mode-only">Since your vessel does not qualify for financing, we can connect you with marine insurance partners instead. Enter your details and we will send quotes to your inbox.</p>
+    <h2 class="h2 step-headline">A few details about you.</h2>
+    <p class="step-sub">So we can run your match and send the results to you. No salesperson will cold call you.</p>
 
     <div class="step-form">
       <div class="field-row two">
@@ -3500,54 +3605,33 @@
         </div>
       </div>
 
-      <!-- Address fields hidden in insurance-only mode -->
-      <div class="loan-mode-only">
+      <div class="field">
+        <label class="field-label">Home Address <span class="req">*</span></label>
+        <input class="input" type="text" placeholder="500 Las Olas Blvd" autocomplete="address-line1">
+      </div>
+
+      <div class="field-row three">
         <div class="field">
-          <label class="field-label">Home Address <span class="req">*</span></label>
-          <input class="input" type="text" placeholder="500 Las Olas Blvd" autocomplete="address-line1">
+          <label class="field-label">City <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="Fort Lauderdale" autocomplete="address-level2">
         </div>
-
-        <div class="field-row three" style="margin-top: 18px;">
-          <div class="field">
-            <label class="field-label">City <span class="req">*</span></label>
-            <input class="input" type="text" placeholder="Fort Lauderdale" autocomplete="address-level2">
-          </div>
-          <div class="field">
-            <label class="field-label">State <span class="req">*</span></label>
-            <input class="input" type="text" placeholder="FL" autocomplete="address-level1" maxlength="2">
-          </div>
-          <div class="field">
-            <label class="field-label">Zip Code <span class="req">*</span></label>
-            <input class="input" type="text" placeholder="33301" autocomplete="postal-code" inputmode="numeric" maxlength="5">
-          </div>
+        <div class="field">
+          <label class="field-label">State <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="FL" autocomplete="address-level1" maxlength="2">
+        </div>
+        <div class="field">
+          <label class="field-label">Zip Code <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="33301" autocomplete="postal-code" inputmode="numeric" maxlength="5">
         </div>
       </div>
 
-      <!-- Zip only for insurance mode -->
-      <div class="field insurance-mode-only">
-        <label class="field-label">Zip Code <span class="req">*</span></label>
-        <input class="input" type="text" placeholder="33301" autocomplete="postal-code" inputmode="numeric" maxlength="5">
-      </div>
-
-      <div class="step-trust-note loan-mode-only">
+      <div class="step-trust-note">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
         Your address is used for the soft credit pull only. Not shared with any lender until you select one.
       </div>
 
-      <div class="step-trust-note insurance-mode-only">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-        Your details are shared only with vetted marine insurance partners. Never sold to third parties.
-      </div>
-
-      <!-- Loan mode: continue to financial step 3 -->
-      <button class="btn btn-primary btn-lg step-continue loan-mode-only" onclick="goToStage(2)">
+      <button class="btn btn-primary btn-lg step-continue" onclick="goToStage(2)">
         Continue
-        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </button>
-
-      <!-- Insurance mode: skip financial step, go straight to confirmation -->
-      <button class="btn btn-primary btn-lg step-continue insurance-mode-only" onclick="submitInsuranceRequest()">
-        Send me insurance quotes
         <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
     </div>
@@ -3801,48 +3885,6 @@
         <p class="reveal-disclaimer">This is not a denial of credit under the Equal Credit Opportunity Act. EasyFund is a matching platform and has not performed a hard inquiry on your credit. No entry has been made on your credit report. You are welcome to seek financing through other channels.</p>
       </div>
     </div>
-
-    <!-- Insurance confirmation panel (shown after submitting insurance-only form) -->
-    <div class="reveal declined" id="reveal-insurance" style="display: none;">
-      <div class="reveal-inner">
-        <div class="reveal-kicker">
-          <span class="d"></span>
-          Request received
-        </div>
-
-        <h2 class="reveal-h2">We will send insurance quotes to your inbox.</h2>
-
-        <p class="reveal-sub" style="margin-top: 24px;">Thank you. One of our marine insurance partners will reach out within 24 hours with quotes tailored to your vessel. If you decide to purchase a different vessel that qualifies for financing, you are welcome to restart the application at any time.</p>
-
-        <div class="decline-next">
-          <div class="dn-title">While you wait</div>
-          <div class="dn-item">
-            <div class="dn-num">1</div>
-            <div class="dn-text">
-              <h5>Check your inbox</h5>
-              <p>Your quotes will arrive from a verified insurance partner. Check spam if you do not see them.</p>
-            </div>
-          </div>
-          <div class="dn-item">
-            <div class="dn-num">2</div>
-            <div class="dn-text">
-              <h5>Considering a newer vessel?</h5>
-              <p>Vessels under 30 years of age qualify for financing through our lender network. You can restart the application with a different vessel year at any time.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal-cta">
-          <button class="btn btn-primary btn-lg reveal-primary" onclick="goToStage(0)">
-            Return to homepage
-            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </button>
-          <button class="btn btn-lg reveal-ghost" onclick="openChat()">
-            Chat with a specialist
-          </button>
-        </div>
-      </div>
-    </div>
   </section>
 </div>
 
@@ -3889,7 +3931,6 @@
     // Hide activity toast once inside the application flow
     if (n === 0) {
       document.body.classList.remove('in-app');
-      document.body.classList.remove('insurance-only');
       // Re-check vessel year in case they return to the configurator
       if (typeof updateYear === 'function') updateYear();
     } else {
@@ -3977,21 +4018,6 @@
     goToStage(3);
   }
 
-  // Insurance quote request: logs the lead and shows a thank-you state.
-  // In production this submits the captured email/name/phone/zip to the
-  // CRM for insurance retargeting.
-  function submitInsuranceRequest() {
-    // PRODUCTION: fire off form submit to backend here
-    // Example: fetch('/api/insurance-lead', { method: 'POST', body: ... });
-    const approvedPanel = document.getElementById('reveal-approved');
-    const declinedPanel = document.getElementById('reveal-declined');
-    const insurancePanel = document.getElementById('reveal-insurance');
-    if (approvedPanel) approvedPanel.style.display = 'none';
-    if (declinedPanel) declinedPanel.style.display = 'none';
-    if (insurancePanel) insurancePanel.style.display = 'block';
-    goToStage(3);
-  }
-
   // Configurator state
   let loanTerm = 20;
   let downPct = 20;
@@ -4015,8 +4041,8 @@
     updateCalc();
   }
 
-  // Vessel year handler: updates display and toggles the insurance-only
-  // mode if the vessel is too old for financing.
+  // Vessel year handler: updates display and toggles the redirect-to-
+  // MasterCover mode if the vessel is too old for financing.
   function updateYear() {
     vesselYear = parseInt(document.getElementById('year').value);
     document.getElementById('year-display').textContent = vesselYear.toString();
@@ -4029,7 +4055,7 @@
     if (age > MAX_VESSEL_AGE) {
       insuranceOnly = true;
       warning.classList.add('visible');
-      ctaText.textContent = 'Get an insurance quote instead';
+      ctaText.textContent = 'Get a MasterCover insurance quote';
       cta.classList.add('insurance-mode');
     } else {
       insuranceOnly = false;
@@ -4040,14 +4066,14 @@
   }
 
   // Handle the primary configurator CTA. Routes to the normal application
-  // flow, or to the insurance-capture flow if the vessel is too old.
+  // flow, or redirects to the MasterCover landing page if the vessel
+  // is too old for financing.
   function handleConfigContinue() {
     if (insuranceOnly) {
-      goToStage(1);
-      // Mark the application form for insurance-only capture
-      document.body.classList.add('insurance-only');
+      // Redirect to MasterCover. Replace the URL with the actual
+      // MasterCover landing page once confirmed.
+      window.location.href = 'https://yachtway.com/mastercover';
     } else {
-      document.body.classList.remove('insurance-only');
       goToStage(1);
     }
   }
