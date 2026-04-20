@@ -1,0 +1,3741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#260754">
+
+<title>Yacht Loan Calculator and Pre-Approval | EasyFund by YachtWay</title>
+<meta name="description" content="Calculate your yacht loan payment and get rate offers from matching lenders in the EasyFund network, including Wells Fargo, Fifth Third, Shore Premier, and more. Soft credit check only. No dealer markup.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://YachtWay.com/easyfund">
+
+<meta property="og:title" content="Yacht Loan Calculator and Pre-Approval | EasyFund by YachtWay">
+<meta property="og:description" content="Calculate your yacht loan payment and get matched with lenders. Soft credit check only. No dealer markup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://YachtWay.com/easyfund">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  "name": "EasyFund by YachtWay",
+  "description": "Yacht loan matching platform connecting buyers with lenders including Wells Fargo, Fifth Third Bank, Shore Premier Financing, Centennial Bank, Octane, and AKF Bank.",
+  "provider": { "@type": "Organization", "name": "YachtWay", "url": "https://YachtWay.com" },
+  "feesAndCommissionsSpecification": "No fees to apply. Matching is free. Final loan terms are set by the matching lender.",
+  "interestRate": "Starting APR 5.99%"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "How does a yacht loan work?", "acceptedAnswer": { "@type": "Answer", "text": "A yacht loan is a secured installment loan. The vessel serves as collateral. Terms typically range from 10 to 20 years. Down payments are usually 10 to 30 percent of the purchase price." } },
+    { "@type": "Question", "name": "What credit score is needed for a yacht loan?", "acceptedAnswer": { "@type": "Answer", "text": "Lenders in the EasyFund network require a minimum credit score of 680. Scores above 720 receive the best available rates. Applications with scores under 680 will likely not qualify." } },
+    { "@type": "Question", "name": "Will checking my rate affect my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "No. EasyFund uses a soft credit pull. A soft pull does not affect your credit score and is not reported to creditors." } }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  "itemReviewed": { "@type": "Organization", "name": "YachtWay EasyFund" },
+  "ratingValue": "4.9",
+  "reviewCount": "2147",
+  "bestRating": "5"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Figtree:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --brand-900: #2B0033;
+    --brand-800: #260754;
+    --brand-700: #4B0EA3;
+    --brand-600: #6430B0;
+    --brand-500: #7E528E;
+    --grad-a: linear-gradient(254.25deg, #8729FA 0%, #2B0075 100%);
+    --grad-b: linear-gradient(304.46deg, #8334DA 0%, #4409D7 100%);
+    --grad-bg: linear-gradient(180deg, #FFFFFF 0%, #F9F9F9 100%);
+    --white: #FFFFFF;
+    --gray-25: #F6F6F7;
+    --gray-50: #F1F1F2;
+    --gray-100: #DCDCDE;
+    --gray-200: #C1C1C4;
+    --gray-300: #A6A6AB;
+    --gray-400: #7A7A80;
+    --gray-500: #4A4A50;
+    --gray-700: #232327;
+    --success: #32D583;
+    --success-900: #175F3B;
+    --success-50: #E7FBF1;
+    --warning: #FDB022;
+    --warning-50: #FEF6E7;
+    --error: #F97066;
+    --shadow-card: 0 1px 2px rgba(38, 7, 84, 0.04), 0 4px 16px -4px rgba(38, 7, 84, 0.08);
+    --shadow-button: 0 1px 2px rgba(38, 7, 84, 0.1);
+    --shadow-xl: 0 40px 80px -20px rgba(38, 7, 84, 0.28);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --radius-sm: 6px;
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+  html, body {
+    background: var(--grad-bg);
+    color: var(--gray-700);
+    font-family: 'Figtree', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+    letter-spacing: -0.003em;
+    min-height: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-attachment: fixed;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 1200px 500px at 80% -20%, rgba(135, 41, 250, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 800px 400px at 0% 100%, rgba(75, 14, 163, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(36px, 4.6vw, 54px);
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    color: var(--brand-800);
+  }
+  .h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(28px, 3.4vw, 38px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--brand-800);
+  }
+  .h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    color: var(--brand-800);
+  }
+  .eyebrow {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-700);
+  }
+
+  /* ============ HEADER ============ */
+  .app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--gray-50);
+  }
+  .app-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand-icon-box {
+    width: 32px; height: 32px;
+    border-radius: 6px;
+    background: var(--brand-800);
+    color: var(--white);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+  }
+  .brand-wordmark {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: var(--brand-800);
+    text-transform: uppercase;
+  }
+  .brand-wordmark span { margin-right: 6px; }
+  .brand-divider { width: 1px; height: 22px; background: var(--gray-100); margin: 0 4px; }
+  .brand-product {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--brand-700);
+    letter-spacing: -0.01em;
+  }
+  .header-help-wrap {
+    position: relative;
+  }
+  .header-help {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-800);
+    text-decoration: none;
+    padding: 10px 18px;
+    border: 1.5px solid var(--brand-800);
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+    background: var(--white);
+    cursor: pointer;
+    font-family: 'Figtree', sans-serif;
+  }
+  .header-help:hover {
+    background: var(--brand-800);
+    color: var(--white);
+  }
+  .header-help:hover .help-icon { color: var(--white); }
+  .header-help .help-icon {
+    color: var(--brand-700);
+    transition: color 0.2s ease;
+  }
+  .header-help[aria-expanded="true"] {
+    background: var(--brand-800);
+    color: var(--white);
+  }
+  .header-help[aria-expanded="true"] .help-icon { color: var(--white); }
+
+  .help-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: var(--radius);
+    box-shadow: 0 24px 48px -12px rgba(38, 7, 84, 0.2), 0 4px 12px rgba(38, 7, 84, 0.06);
+    min-width: 340px;
+    padding: 8px;
+    z-index: 110;
+    opacity: 0;
+    transform: translateY(-6px);
+    pointer-events: none;
+    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+  }
+  .help-menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .help-menu::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 26px;
+    width: 10px;
+    height: 10px;
+    background: var(--white);
+    border-left: 1px solid var(--gray-50);
+    border-top: 1px solid var(--gray-50);
+    transform: rotate(45deg);
+  }
+
+  .help-option {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+    font-family: 'Figtree', sans-serif;
+  }
+  .help-option:hover {
+    background: var(--gray-25);
+  }
+  .help-option + .help-option {
+    border-top: 1px solid var(--gray-50);
+    margin-top: 2px;
+    padding-top: 16px;
+  }
+  .ho-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .ho-icon-chat {
+    background: rgba(135, 41, 250, 0.1);
+    color: var(--brand-700);
+  }
+  .ho-icon-call {
+    background: var(--gray-25);
+    color: var(--gray-500);
+  }
+  .ho-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .ho-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--brand-800);
+    letter-spacing: -0.005em;
+    margin-bottom: 2px;
+  }
+  .ho-sub {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.35;
+  }
+  .ho-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--success-900);
+    flex-shrink: 0;
+  }
+  .ho-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 3px rgba(50, 213, 131, 0.2);
+    animation: pulseGreen 2s infinite;
+  }
+  .ho-arrow {
+    color: var(--gray-300);
+    flex-shrink: 0;
+  }
+  @keyframes pulseGreen {
+    0%, 100% { box-shadow: 0 0 0 3px rgba(50, 213, 131, 0.2); }
+    50% { box-shadow: 0 0 0 6px rgba(50, 213, 131, 0.05); }
+  }
+
+  .shell {
+    position: relative;
+    z-index: 1;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  section.block { padding: 72px 0; }
+
+  /* ============ HERO ============ */
+  .hero-wrap {
+    padding: 20px 0 24px;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .hero-copy .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: rgba(135, 41, 250, 0.08);
+    border-radius: 100px;
+    margin-bottom: 24px;
+  }
+  .hero-copy .eyebrow .dot {
+    width: 6px; height: 6px; border-radius: 50%; background: var(--brand-700);
+  }
+  .hero-copy .lede {
+    margin-top: 22px;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--gray-500);
+    max-width: 46ch;
+  }
+
+  /* Activity counter and rating combined in hero micro-trust row */
+  .hero-micro-trust {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-500);
+  }
+  .hero-micro-trust .item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-micro-trust svg { color: var(--success-900); flex-shrink: 0; }
+
+  /* Activity indicator: factual, not urgency-based */
+  .activity-indicator {
+    margin-top: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: 100px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-500);
+    box-shadow: var(--shadow-card);
+  }
+  .activity-indicator .pulse {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 3px rgba(50, 213, 131, 0.2);
+    animation: pulseGreen 2s infinite;
+  }
+  .activity-indicator .count {
+    font-weight: 600;
+    color: var(--brand-800);
+  }
+
+  .configurator {
+    background: var(--white);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--gray-50);
+    overflow: hidden;
+    position: relative;
+  }
+  .config-head {
+    padding: 22px 26px;
+    background: var(--brand-800);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .config-head::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 300px 200px at 100% 50%, rgba(135, 41, 250, 0.4) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .config-head > * { position: relative; }
+  .config-head .label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .config-head .title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.015em;
+    margin-top: 2px;
+  }
+  .config-head .live-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .config-head .live-tag .d {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--success);
+    animation: pulseGreen 2s infinite;
+  }
+
+  .config-body { padding: 28px; }
+
+  .type-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .type-pill {
+    background: var(--white);
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    padding: 12px 8px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-800);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+  }
+  .type-pill:hover { border-color: var(--brand-600); }
+  .type-pill.active {
+    background: var(--brand-800);
+    color: var(--white);
+    border-color: var(--brand-800);
+  }
+
+  .slider-row { margin-bottom: 20px; }
+  .slider-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .slider-label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+  }
+  .slider-val {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--brand-800);
+  }
+  .slider-val .sub {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+    font-weight: 500;
+    margin-left: 6px;
+  }
+
+  /* Dollar/percent toggle for down payment */
+  .toggle-dp {
+    display: inline-flex;
+    background: var(--gray-50);
+    border-radius: 100px;
+    padding: 2px;
+    margin-left: 10px;
+  }
+  .toggle-dp button {
+    padding: 4px 10px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-400);
+    background: transparent;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .toggle-dp button.active {
+    background: var(--white);
+    color: var(--brand-800);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  }
+
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--gray-50);
+    outline: none;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px; height: 22px;
+    background: var(--white);
+    border: 2.5px solid var(--brand-700);
+    border-radius: 50%;
+    cursor: grab;
+    margin-top: -9px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.15s ease;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+  input[type="range"]::-moz-range-thumb {
+    width: 22px; height: 22px;
+    background: var(--white);
+    border: 2.5px solid var(--brand-700);
+    border-radius: 50%;
+    cursor: grab;
+    box-shadow: var(--shadow-card);
+  }
+
+  .term-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    margin-top: 6px;
+  }
+  .term-pill {
+    padding: 10px 6px;
+    border: 1.5px solid var(--gray-100);
+    background: var(--white);
+    border-radius: var(--radius-sm);
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-800);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 40px;
+  }
+  .term-pill:hover { border-color: var(--brand-600); }
+  .term-pill.active {
+    background: var(--brand-800);
+    color: var(--white);
+    border-color: var(--brand-800);
+  }
+
+  .result-panel {
+    margin-top: 24px;
+    padding: 22px;
+    background: linear-gradient(135deg, rgba(135, 41, 250, 0.05) 0%, rgba(75, 14, 163, 0.03) 100%);
+    border: 1px solid rgba(135, 41, 250, 0.15);
+    border-radius: var(--radius);
+  }
+  .result-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .result-label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 4px;
+  }
+  .result-main {
+    font-family: 'Poppins', sans-serif;
+    font-size: 38px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--brand-800);
+  }
+  .result-main .per {
+    font-size: 14px;
+    font-family: 'Figtree', sans-serif;
+    color: var(--gray-400);
+    font-weight: 500;
+    margin-left: 6px;
+    letter-spacing: 0;
+  }
+  .result-compare {
+    text-align: right;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.5;
+    max-width: 18ch;
+  }
+  .result-compare .save {
+    display: block;
+    color: var(--brand-700);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .config-cta-row {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 24px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    min-height: 52px;
+    background: var(--brand-800);
+    color: var(--white);
+    position: relative;
+    box-shadow: var(--shadow-button);
+  }
+  .btn:hover {
+    background: var(--brand-700);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(75, 14, 163, 0.24);
+  }
+  .btn-primary { background: var(--grad-a); }
+  .btn-primary:hover { background: var(--grad-b); }
+  .btn-primary.full { width: 100%; padding: 18px 28px; min-height: 56px; }
+  .btn-ghost {
+    background: var(--white);
+    color: var(--brand-800);
+    border: 1px solid var(--gray-100);
+    box-shadow: none;
+  }
+  .btn-ghost:hover {
+    border-color: var(--brand-700);
+    color: var(--brand-700);
+  }
+  .btn-lg {
+    padding: 20px 36px;
+    font-size: 16px;
+    min-height: 60px;
+  }
+  .btn .arrow { transition: transform 0.2s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .config-note {
+    margin-top: 12px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+    text-align: center;
+  }
+  .config-note svg { color: var(--success-900); vertical-align: -2px; margin-right: 4px; }
+
+  /* Vessel-in-mind toggle */
+  .vessel-toggle {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--gray-25);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+  .vessel-toggle .switch {
+    position: relative;
+    width: 36px; height: 20px;
+    background: var(--gray-200);
+    border-radius: 100px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  .vessel-toggle .switch::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px;
+    width: 16px; height: 16px;
+    background: var(--white);
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+  .vessel-toggle.on .switch {
+    background: var(--brand-700);
+  }
+  .vessel-toggle.on .switch::after {
+    transform: translateX(16px);
+  }
+  .vessel-link-input {
+    display: none;
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px 14px;
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    outline: none;
+  }
+  .vessel-link-input:focus { border-color: var(--brand-700); }
+  .vessel-toggle.on ~ .vessel-link-input { display: block; }
+
+  /* ============ LENDER STRIP ============ */
+  .lender-strip {
+    padding: 40px 0 32px;
+    border-top: 1px solid var(--gray-50);
+    border-bottom: 1px solid var(--gray-50);
+  }
+  .lender-strip-head {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .lender-strip-head .label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+  }
+  .lender-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    align-items: center;
+  }
+  .lender-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    padding: 0 16px;
+    border-radius: var(--radius-sm);
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--gray-500);
+    letter-spacing: -0.01em;
+    text-align: center;
+    transition: all 0.2s ease;
+    filter: grayscale(1);
+    opacity: 0.75;
+  }
+  .lender-logo:hover {
+    filter: grayscale(0);
+    opacity: 1;
+    border-color: var(--gray-100);
+  }
+  .lender-logo.wells { color: #D71E28; }
+  .lender-logo.fifth { color: #00873E; }
+  .lender-logo.shore { color: #003366; }
+  .lender-logo.centennial { color: #1F3864; }
+  .lender-logo.octane { color: #FF6B00; }
+  .lender-logo.akf { color: #000000; font-size: 12px; line-height: 1.2; }
+  .lender-logo.akf .sub {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--gray-400);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  /* Compliance strip below lenders */
+  .compliance-strip {
+    margin-top: 32px;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--gray-50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .compliance-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .cs-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--success-50);
+    color: var(--success-900);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .cs-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    line-height: 1.2;
+  }
+  .cs-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-800);
+    letter-spacing: -0.01em;
+  }
+  .cs-sub {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-400);
+    letter-spacing: 0.02em;
+  }
+  .compliance-divider {
+    width: 1px;
+    height: 28px;
+    background: var(--gray-100);
+  }
+  @media (max-width: 860px) {
+    .compliance-strip { gap: 16px; padding: 16px 0 0; margin-top: 24px; }
+    .compliance-divider { display: none; }
+  }
+
+  /* ============ REVIEWS ============ */
+  .reviews-section {
+    padding: 64px 0;
+  }
+  .reviews-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 40px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .reviews-head .copy h2 {
+    margin-bottom: 6px;
+  }
+  .reviews-head .copy p {
+    font-size: 15px;
+    color: var(--gray-500);
+    max-width: 48ch;
+  }
+  .reviews-summary {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 22px;
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+  }
+  .reviews-summary .stars {
+    display: flex;
+    gap: 2px;
+    color: #F5B800;
+  }
+  .reviews-summary .score {
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--brand-800);
+    letter-spacing: -0.02em;
+  }
+  .reviews-summary .label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+  .reviews-summary .divider {
+    width: 1px; height: 32px;
+    background: var(--gray-100);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .review-card {
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: all 0.25s ease;
+  }
+  .review-card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+  .review-stars {
+    display: flex;
+    gap: 3px;
+    color: #F5B800;
+  }
+  .review-quote {
+    font-family: 'Figtree', sans-serif;
+    font-size: 15px;
+    color: var(--gray-700);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .review-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gray-50);
+  }
+  .review-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: var(--grad-a);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: -0.01em;
+  }
+  .review-meta .info .name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--brand-800);
+    letter-spacing: -0.01em;
+  }
+  .review-meta .info .detail {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+    margin-top: 2px;
+  }
+  .review-verified {
+    margin-left: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--success-900);
+  }
+
+  /* ============ SOCIAL PROOF NUMBERS ============ */
+  .proof-row {
+    padding: 48px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+    border-top: 1px solid var(--gray-50);
+    border-bottom: 1px solid var(--gray-50);
+  }
+  .proof-stat .n {
+    font-family: 'Poppins', sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    color: var(--brand-800);
+    line-height: 1;
+  }
+  .proof-stat .l {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--gray-400);
+    margin-top: 12px;
+    text-transform: uppercase;
+  }
+
+  /* ============ HOW IT WORKS ============ */
+  .hiw-head {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .hiw-head .eyebrow { display: inline-block; margin-bottom: 16px; }
+  .hiw-head .sub {
+    font-size: 17px;
+    color: var(--gray-500);
+    max-width: 54ch;
+    margin: 18px auto 0;
+    line-height: 1.55;
+  }
+  .hiw-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .hiw-card {
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all 0.25s ease;
+  }
+  .hiw-card:hover {
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+  }
+  .hiw-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 52px;
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    background: var(--grad-a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+  .hiw-card h3 { margin-bottom: 10px; }
+  .hiw-card p {
+    font-size: 15px;
+    color: var(--gray-500);
+    line-height: 1.6;
+  }
+  .hiw-card .detail {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--gray-50);
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hiw-card .detail svg { color: var(--success-900); flex-shrink: 0; }
+
+  /* ============ COMPARISON BAND ============ */
+  .compare-band {
+    background: var(--brand-800);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    padding: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .compare-band::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 500px 400px at 90% 10%, rgba(135, 41, 250, 0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 400px 300px at 10% 90%, rgba(75, 14, 163, 0.25) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .compare-band > * { position: relative; }
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 56px;
+    align-items: center;
+  }
+  .compare-band h2 { color: var(--white); }
+  .compare-band .lede-dark {
+    margin-top: 18px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 44ch;
+  }
+  .compare-table {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .compare-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    align-items: center;
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row.head {
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .compare-row .col-label {
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  .compare-row .col-them {
+    color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    font-weight: 500;
+  }
+  .compare-row .col-us {
+    color: var(--white);
+    text-align: center;
+    font-weight: 600;
+  }
+  .compare-row .check { color: var(--success); }
+  .compare-row .x { color: rgba(255, 255, 255, 0.3); }
+
+  /* ============ FAQ ============ */
+  .faq-list {
+    max-width: 900px;
+    margin: 40px auto 0;
+  }
+  .faq-item { border-bottom: 1px solid var(--gray-50); }
+  .faq-item summary {
+    padding: 22px 0;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--brand-800);
+    letter-spacing: -0.01em;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    color: var(--brand-700);
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item .faq-body {
+    padding: 0 0 22px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 15px;
+    color: var(--gray-500);
+    line-height: 1.65;
+    max-width: 72ch;
+  }
+
+  /* ============ FINAL CTA ============ */
+  .final-cta {
+    background: linear-gradient(180deg, #FFFFFF 0%, rgba(135, 41, 250, 0.04) 100%);
+    border-radius: var(--radius-lg);
+    padding: 64px 48px;
+    text-align: center;
+    border: 1px solid var(--gray-50);
+  }
+  .final-cta h2 { margin-bottom: 18px; }
+  .final-cta p {
+    font-size: 17px;
+    color: var(--gray-500);
+    max-width: 52ch;
+    margin: 0 auto 28px;
+    line-height: 1.55;
+  }
+  .final-cta-buttons {
+    display: inline-flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  footer {
+    padding: 40px 0 56px;
+    border-top: 1px solid var(--gray-50);
+    margin-top: 40px;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .footer-disclaimer {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+    max-width: 72ch;
+    line-height: 1.6;
+  }
+  .footer-copy {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-400);
+  }
+
+  @media (max-width: 960px) {
+    .app-header-inner { padding: 14px 20px; }
+    .brand-divider, .brand-product { display: none; }
+    .header-help { padding: 10px 12px; font-size: 12px; }
+    .header-help span { display: none; }
+    .help-menu {
+      min-width: 280px;
+      right: -8px;
+    }
+    .help-menu::before { right: 22px; }
+    .shell { padding: 0 20px; }
+    section.block { padding: 48px 0; }
+    .hero-wrap { grid-template-columns: 1fr; gap: 32px; padding: 12px 0 8px; }
+    .lender-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .lender-logo { height: 56px; font-size: 12px; }
+    .reviews-head { flex-direction: column; align-items: flex-start; }
+    .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
+    .proof-row { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; padding: 32px 0; }
+    .proof-stat .n { font-size: 30px; }
+    .hiw-grid { grid-template-columns: 1fr; gap: 16px; }
+    .hiw-card { padding: 26px; }
+    .compare-band { padding: 36px 24px; }
+    .compare-grid { grid-template-columns: 1fr; gap: 28px; }
+    .final-cta { padding: 40px 24px; }
+    .result-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+    .result-compare { text-align: left; max-width: none; }
+    .config-cta-row { flex-direction: column; align-items: stretch; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  @media (max-width: 520px) {
+    .type-row { grid-template-columns: repeat(2, 1fr); }
+    .term-row { grid-template-columns: repeat(3, 1fr); }
+    .lender-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-micro-trust { gap: 12px; }
+    .result-main { font-size: 32px; }
+  }
+
+  .reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  }
+  .reveal-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ============================================================
+     NEW: Prominent activity indicator
+     ============================================================ */
+  .activity-indicator-prominent {
+    margin-top: 24px;
+    display: inline-flex;
+    align-items: stretch;
+    background: var(--white);
+    border: 1px solid rgba(135, 41, 250, 0.15);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    position: relative;
+  }
+  .activity-indicator-prominent .ai-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 200px 80px at 0% 50%, rgba(50, 213, 131, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .activity-indicator-prominent .ai-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    position: relative;
+  }
+  .activity-indicator-prominent .ai-pulse {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(50, 213, 131, 0.1);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .activity-indicator-prominent .ai-pulse span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px rgba(50, 213, 131, 0.25);
+    animation: pulseGreen 1.6s infinite;
+  }
+  .activity-indicator-prominent .ai-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .activity-indicator-prominent .ai-num {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--brand-800);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .activity-indicator-prominent .ai-label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-500);
+  }
+
+  /* ============================================================
+     NEW: Configurator mode toggle
+     ============================================================ */
+  .mode-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+    background: var(--gray-25);
+    border-radius: var(--radius-sm);
+    margin-bottom: 22px;
+  }
+  .mode-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--gray-400);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    min-height: 38px;
+  }
+  .mode-btn svg { color: var(--gray-300); }
+  .mode-btn:hover { color: var(--brand-700); }
+  .mode-btn.active {
+    background: var(--white);
+    color: var(--brand-800);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  }
+  .mode-btn.active svg { color: var(--brand-700); }
+
+  /* ============================================================
+     NEW: Two vessel type cards (replacing 4-pill grid)
+     ============================================================ */
+  .type-row-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 22px;
+  }
+  .type-big {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: var(--white);
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brand-800);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 54px;
+    letter-spacing: -0.005em;
+  }
+  .type-big svg { color: var(--gray-400); transition: color 0.2s ease; }
+  .type-big:hover { border-color: var(--brand-600); }
+  .type-big.active {
+    background: var(--brand-800);
+    color: var(--white);
+    border-color: var(--brand-800);
+  }
+  .type-big.active svg { color: var(--brand-2, #D4B3FF); }
+
+  /* ============================================================
+     NEW: Down payment quick-pick chips
+     ============================================================ */
+  .dp-chips {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .dp-chip {
+    padding: 10px 4px;
+    background: var(--white);
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--brand-800);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    min-height: 40px;
+  }
+  .dp-chip:hover { border-color: var(--brand-600); }
+  .dp-chip.active {
+    background: var(--brand-800);
+    color: var(--white);
+    border-color: var(--brand-800);
+  }
+
+  /* Tick row for sliders */
+  .tick-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-300);
+  }
+
+  /* ============================================================
+     UPDATED: Comparison band prominence
+     Bigger headline, bigger lede, bigger table.
+     ============================================================ */
+  .compare-band {
+    padding: 72px 64px;
+  }
+  .compare-eyebrow {
+    display: inline-block;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-2, #D4B3FF);
+    background: linear-gradient(90deg, #D4B3FF 0%, #8729FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+  .compare-h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(32px, 4.4vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--white);
+  }
+  .compare-band .lede-dark {
+    margin-top: 24px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.78);
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+  .compare-band .lede-dark strong {
+    color: var(--white);
+    font-weight: 600;
+  }
+
+  .compare-row {
+    padding: 22px 28px;
+    font-size: 16px;
+  }
+  .compare-row.head {
+    font-size: 12px;
+    padding: 16px 28px;
+  }
+  .compare-row .col-label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .compare-row .col-them {
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .compare-row .col-us {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .compare-row .col-us.us-accent {
+    background: linear-gradient(90deg, #D4B3FF 0%, #8729FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+  }
+
+  /* The EasyFund Match Promise card */
+  .promise-card {
+    margin-top: 32px;
+    padding: 24px 28px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 3px solid var(--brand-2, #D4B3FF);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    position: relative;
+    overflow: hidden;
+  }
+  .promise-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 300px 150px at 0% 0%, rgba(135, 41, 250, 0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .promise-card > * { position: relative; }
+  .promise-badge {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8729FA 0%, #4B0EA3 100%);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(135, 41, 250, 0.35);
+  }
+  .promise-content { flex: 1; }
+  .promise-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+  .promise-text {
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Three-column field row for city/state/zip */
+  .field-row.three {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* Inline soft-pull trust note on step 2 */
+  .step-trust-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 18px;
+    background: var(--success-50);
+    border-left: 3px solid var(--success-900);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.5;
+  }
+  .step-trust-note svg {
+    color: var(--success-900);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  @media (max-width: 860px) {
+    .type-row-two { grid-template-columns: 1fr; }
+    .dp-chips { grid-template-columns: repeat(2, 1fr); }
+    .compare-band { padding: 40px 24px; }
+    .compare-row { padding: 18px 20px; font-size: 14px; }
+    .compare-row .col-label,
+    .compare-row .col-us { font-size: 14px; }
+    .field-row.three { grid-template-columns: 1fr; }
+    .mode-btn { font-size: 11px; padding: 8px 6px; }
+    .mode-btn svg { display: none; }
+  }
+
+  /* ============================================================
+     LIVE ACTIVITY TOAST
+     Fixed bottom-left. Slides in, holds, slides out.
+     Paired with the hero activity counter which ticks up
+     each time a toast fires.
+     ============================================================ */
+  .activity-toast {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 200;
+    max-width: 360px;
+    opacity: 0;
+    transform: translateY(20px) translateX(-8px);
+    transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    pointer-events: none;
+  }
+  .activity-toast.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+    pointer-events: auto;
+  }
+  .at-inner {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px 14px 14px;
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: 100px;
+    box-shadow: 0 12px 28px -8px rgba(38, 7, 84, 0.18), 0 2px 6px rgba(38, 7, 84, 0.06);
+  }
+  .at-pulse {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(50, 213, 131, 0.12);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .at-pulse span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--success);
+    box-shadow: 0 0 0 4px rgba(50, 213, 131, 0.25);
+    animation: pulseGreen 1.6s infinite;
+  }
+  .at-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .at-line {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+    line-height: 1.35;
+    white-space: nowrap;
+  }
+  .at-line strong {
+    font-weight: 600;
+    color: var(--brand-800);
+  }
+  .at-sub {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--gray-400);
+  }
+
+  /* Hide toast while inside application flow (feels out of place
+     once the buyer has committed and is filling fields). */
+  body.in-app .activity-toast { display: none; }
+
+  @media (max-width: 600px) {
+    .activity-toast {
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      max-width: none;
+    }
+    .at-line { white-space: normal; font-size: 12px; }
+  }
+
+  /* Small up-tick animation for the counter when it increments */
+  .ai-num.tick {
+    animation: numberTick 0.6s var(--ease);
+  }
+  @keyframes numberTick {
+    0% { transform: translateY(0); opacity: 1; }
+    40% { transform: translateY(-4px); opacity: 0.7; color: var(--success-900); }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  /* ============================================================
+     STAGE SYSTEM: landing vs application steps
+     ============================================================ */
+  .stage { display: none; }
+  .stage.active { display: block; animation: stageIn 0.4s var(--ease); }
+  @keyframes stageIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Application steps use their own sticky header that replaces
+     the marketing header for a focused, form-only feel. */
+  .stage-app .app-header { display: none; }
+
+  .step-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--gray-50);
+  }
+  .step-header-inner {
+    padding: 14px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .step-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--gray-400);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 8px 4px;
+  }
+  .step-back:hover { color: var(--brand-700); }
+
+  .step-progress {
+    display: flex;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+    max-width: 200px;
+  }
+  .step-dot {
+    width: 32px;
+    height: 4px;
+    background: var(--gray-100);
+    border-radius: 100px;
+    transition: background 0.3s ease;
+  }
+  .step-dot.done { background: var(--brand-700); }
+  .step-dot.active { background: var(--brand-700); }
+
+  .step-label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    min-width: 80px;
+    text-align: right;
+  }
+
+  .app-step-shell {
+    max-width: 640px;
+    padding: 48px 32px 80px;
+  }
+  .app-step-shell.wide {
+    max-width: 880px;
+  }
+
+  .step-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .step-eyebrow {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-700);
+  }
+  .step-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-400);
+  }
+
+  .step-headline {
+    margin-bottom: 12px;
+  }
+  .step-sub {
+    font-size: 15px;
+    color: var(--gray-500);
+    max-width: 52ch;
+    line-height: 1.55;
+    margin-bottom: 32px;
+  }
+
+  .step-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .field-row.two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .field { position: relative; }
+  .field-label {
+    display: block;
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+  }
+  .field-label .req {
+    color: var(--brand-700);
+    font-size: 14px;
+    margin-left: 2px;
+  }
+
+  .input {
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--white);
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    font-family: 'Figtree', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--gray-700);
+    outline: none;
+    transition: all 0.2s ease;
+    min-height: 48px;
+  }
+  .input::placeholder { color: var(--gray-300); font-weight: 400; }
+  .input:focus {
+    border-color: var(--brand-700);
+    box-shadow: 0 0 0 3px rgba(75, 14, 163, 0.1);
+  }
+
+  .trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 4px;
+    padding: 14px 0;
+    border-top: 1px solid var(--gray-50);
+    border-bottom: 1px solid var(--gray-50);
+  }
+  .trust-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: 100px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--gray-500);
+  }
+  .trust-chip .tc-icon { color: var(--success-900); }
+
+  .step-continue {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  /* Choice cards (used on step 3) */
+  .choice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+  }
+  .choice-grid.four { grid-template-columns: repeat(4, 1fr); }
+
+  .choice-card {
+    position: relative;
+    background: var(--white);
+    border: 1.5px solid var(--gray-100);
+    border-radius: var(--radius-sm);
+    padding: 16px 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-height: 76px;
+    text-align: left;
+    font-family: inherit;
+    color: inherit;
+  }
+  .choice-card:hover {
+    border-color: var(--brand-600);
+    transform: translateY(-1px);
+  }
+  .choice-card.active {
+    border-color: var(--brand-700);
+    background: rgba(135, 41, 250, 0.04);
+    box-shadow: 0 0 0 1px var(--brand-700);
+  }
+  .choice-card .c-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brand-800);
+    letter-spacing: -0.005em;
+  }
+  .choice-card .c-sub {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    color: var(--gray-400);
+    line-height: 1.4;
+  }
+  .choice-card .check-dot {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gray-100);
+    background: var(--white);
+    transition: all 0.2s ease;
+  }
+  .choice-card.active .check-dot {
+    background: var(--brand-700);
+    border-color: var(--brand-700);
+  }
+  .choice-card.active .check-dot::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 7px; height: 4px;
+    border-left: 1.5px solid white;
+    border-bottom: 1.5px solid white;
+    transform: rotate(-45deg);
+  }
+
+  /* Trust block on step 3 */
+  .trust-block {
+    padding: 18px 20px;
+    background: var(--success-50);
+    border-left: 3px solid var(--success-900);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  /* Credit score warning shown when Under 680 is selected */
+  .credit-warning {
+    margin-top: 18px;
+    padding: 16px 20px;
+    background: rgba(253, 176, 34, 0.08);
+    border-left: 3px solid var(--warning);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    display: none;
+    gap: 14px;
+    align-items: flex-start;
+    animation: warningIn 0.3s var(--ease);
+  }
+  .credit-warning.visible {
+    display: flex;
+  }
+  @keyframes warningIn {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .cw-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--warning);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+  }
+  .cw-content h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    color: var(--brand-800);
+  }
+  .cw-content p {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-700);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .trust-block .tb-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--success-900);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+  }
+  .trust-block .tb-content h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: 4px;
+    color: var(--brand-800);
+  }
+  .trust-block .tb-content p {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.5;
+  }
+
+  /* Reveal screen */
+  .reveal {
+    background: var(--brand-800);
+    color: var(--white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: var(--shadow-xl);
+  }
+  .reveal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 15%, rgba(135, 41, 250, 0.4) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 90%, rgba(75, 14, 163, 0.3) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .reveal-inner {
+    padding: 56px 56px;
+    position: relative;
+  }
+  .reveal-kicker {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .reveal-kicker .d {
+    width: 7px; height: 7px;
+    background: var(--success);
+    border-radius: 50%;
+    animation: pulseGreen 2s infinite;
+  }
+  .reveal-h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(30px, 3.6vw, 42px);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--white);
+    max-width: 18ch;
+  }
+  .reveal-rate {
+    margin-top: 36px;
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .reveal-rate .num {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: clamp(64px, 9vw, 112px);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
+    color: var(--white);
+  }
+  .reveal-rate .to {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+  .reveal-rate .num.alt {
+    background: linear-gradient(90deg, #D4B3FF 0%, #8729FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .reveal-rate .pct {
+    font-size: 40px;
+    color: rgba(255, 255, 255, 0.5);
+    vertical-align: super;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+  .reveal-rate .apr {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    align-self: flex-end;
+    margin-bottom: 8px;
+  }
+  .reveal-sub {
+    margin-top: 18px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 54ch;
+    line-height: 1.55;
+  }
+  .reveal-sub strong { color: var(--white); font-weight: 600; }
+
+  .breakdown {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .bkd { display: flex; flex-direction: column; gap: 6px; }
+  .bkd .l {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .bkd .v {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--white);
+  }
+  .bkd.highlight .v {
+    background: linear-gradient(90deg, #D4B3FF 0%, #8729FA 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 24px;
+  }
+  .bkd.muted .v {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: line-through;
+    text-decoration-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .saved-note {
+    margin-top: 40px;
+    padding: 18px 20px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .saved-note .sn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: rgba(50, 213, 131, 0.2);
+    color: var(--success);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .saved-note h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+  .saved-note p {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 2px;
+  }
+
+  .reveal-cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .reveal-primary {
+    background: var(--white);
+    color: var(--brand-800);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+  .reveal-primary:hover {
+    background: var(--white);
+    transform: translateY(-1px);
+  }
+  .reveal-ghost {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: none;
+  }
+  .reveal-ghost:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: var(--white);
+    box-shadow: none;
+  }
+
+  .reveal-disclaimer {
+    margin-top: 20px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    line-height: 1.55;
+    max-width: 70ch;
+  }
+
+  /* ============================================================
+     DECLINED REVEAL VARIANT
+     Same dark card, but without the gradient purple celebration.
+     Neutral, respectful, with clear next steps.
+     ============================================================ */
+  .reveal.declined {
+    background: var(--brand-900, #1F0A3A);
+  }
+  .reveal.declined::before {
+    background:
+      radial-gradient(ellipse 60% 50% at 85% 15%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 10% 90%, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+  }
+  .reveal-kicker.kicker-muted {
+    color: rgba(255, 255, 255, 0.55);
+  }
+  .reveal-kicker .d-muted {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    display: inline-block;
+  }
+
+  .decline-next {
+    margin-top: 40px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .dn-title {
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 20px;
+  }
+  .dn-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 0;
+  }
+  .dn-item + .dn-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .dn-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+  .dn-text h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .dn-text p {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    .step-header-inner { padding: 12px 20px; }
+    .step-progress { max-width: 140px; }
+    .step-dot { width: 24px; }
+    .step-label { font-size: 10px; min-width: 60px; }
+    .app-step-shell { padding: 32px 20px 64px; }
+    .field-row.two { grid-template-columns: 1fr; gap: 14px; }
+    .choice-grid.four { grid-template-columns: repeat(2, 1fr); }
+    .reveal-inner { padding: 40px 28px; }
+    .breakdown { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .reveal-cta { flex-direction: column; }
+    .reveal-cta .btn { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="app-header">
+  <div class="app-header-inner">
+    <a href="#" class="brand">
+      <div class="brand-icon-box">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/></svg>
+      </div>
+      <span class="brand-wordmark"><span>YACHT</span>WAY</span>
+      <div class="brand-divider"></div>
+      <span class="brand-product">EasyFund</span>
+    </a>
+    <div class="header-help-wrap">
+      <button type="button" class="header-help" onclick="toggleHelpMenu(event)" aria-haspopup="true" aria-expanded="false" id="help-trigger">
+        <svg class="help-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <span>Chat with a specialist</span>
+      </button>
+
+      <!-- Help popover: chat primary, call secondary -->
+      <div class="help-menu" id="help-menu" role="menu">
+        <button class="help-option" role="menuitem" onclick="openChat()">
+          <div class="ho-icon ho-icon-chat">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div class="ho-text">
+            <div class="ho-title">Start a chat</div>
+            <div class="ho-sub">Typical reply in under 2 minutes</div>
+          </div>
+          <div class="ho-status">
+            <span class="ho-dot"></span>
+            Online
+          </div>
+        </button>
+
+        <a href="tel:+18005555555" class="help-option" role="menuitem">
+          <div class="ho-icon ho-icon-call">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="ho-text">
+            <div class="ho-title">Call our team</div>
+            <div class="ho-sub">1-800-555-5555 · Mon to Fri, 9 AM to 7 PM ET</div>
+          </div>
+          <svg class="ho-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- =========================================================
+     STAGE 0: LANDING (hero configurator, reviews, FAQ, etc)
+     ========================================================= -->
+<div class="stage stage-landing active" data-stage="0">
+
+<!-- ============ HERO WITH EMBEDDED CONFIGURATOR ============ -->
+<section class="shell">
+  <div class="hero-wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">
+        <span class="dot"></span>
+        EasyFund by YachtWay
+      </div>
+
+      <h1 class="h1">Yacht loan calculator and lender matching, in one place.</h1>
+
+      <p class="lede">Move the sliders. See your monthly payment. Get matched with lenders from our network including Wells Fargo, Fifth Third, and Shore Premier. No dealer markup, no hard credit check.</p>
+
+      <div class="hero-micro-trust">
+        <span class="item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          No impact to credit score
+        </span>
+        <span class="item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Results in around 60 seconds
+        </span>
+        <span class="item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          Loans from $50,000 to $50,000,000
+        </span>
+      </div>
+
+      <!-- Activity indicator: prominent live trust signal -->
+      <div class="activity-indicator-prominent">
+        <div class="ai-glow"></div>
+        <div class="ai-content">
+          <div class="ai-pulse"><span></span></div>
+          <div class="ai-text">
+            <span class="ai-num" id="activity-count">194</span>
+            <span class="ai-label">rate checks in the last hour</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Embedded configurator -->
+    <div class="configurator">
+      <div class="config-head">
+        <div>
+          <div class="label">Yacht Loan Calculator</div>
+          <div class="title">Your estimated payment</div>
+        </div>
+        <span class="live-tag"><span class="d"></span> Live</span>
+      </div>
+
+      <div class="config-body">
+        <!-- Mode toggle: calculate by price or by monthly payment -->
+        <div class="mode-toggle">
+          <button type="button" class="mode-btn active" onclick="setMode('price')" id="mode-price">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Calculate by price
+          </button>
+          <button type="button" class="mode-btn" onclick="setMode('payment')" id="mode-payment">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Calculate by monthly payment
+          </button>
+        </div>
+
+        <div class="slider-label" style="margin-bottom: 10px;">Vessel Type</div>
+        <div class="type-row-two">
+          <button type="button" class="type-big active" onclick="setType(this)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 18c2 2 5 2 7 0s5-2 7 0 4 0 4 0M5 14l7-8 7 8M9 10V4h6v6"/></svg>
+            <span>Motor Yacht</span>
+          </button>
+          <button type="button" class="type-big" onclick="setType(this)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 19c2 2 5 2 7 0s5-2 7 0 4 0 4 0M12 3v13M8 16l4-13 4 13"/></svg>
+            <span>Sailing</span>
+          </button>
+        </div>
+
+        <!-- Price slider (shown in Price mode). Uses a 0-1000 position
+             value mapped to an exponential/log price scale so dragging
+             feels natural at every price point. See mapSliderToPrice. -->
+        <div class="slider-row" id="price-row">
+          <div class="slider-head">
+            <span class="slider-label">Purchase Price</span>
+            <span class="slider-val" id="price-display">$850,000</span>
+          </div>
+          <input type="range" id="price" min="0" max="1000" step="1" value="410" oninput="updateCalc()">
+          <div class="tick-row">
+            <span>$50K</span>
+            <span>$500K</span>
+            <span>$5M</span>
+            <span>$50M</span>
+          </div>
+        </div>
+
+        <!-- Monthly payment slider (shown in Payment mode) -->
+        <div class="slider-row" id="payment-row" style="display:none;">
+          <div class="slider-head">
+            <span class="slider-label">Desired Monthly Payment</span>
+            <span class="slider-val" id="payment-target-display">$5,000</span>
+          </div>
+          <input type="range" id="payment-target" min="500" max="250000" step="100" value="5000" oninput="updateCalc()">
+          <div class="tick-row">
+            <span>$500</span>
+            <span>$5K</span>
+            <span>$25K</span>
+            <span>$250K</span>
+          </div>
+        </div>
+
+        <!-- Quick-pick down payment chips -->
+        <div class="slider-row">
+          <div class="slider-head">
+            <span class="slider-label">Down Payment</span>
+            <span class="slider-val" id="down-display">20%</span>
+          </div>
+          <div class="dp-chips">
+            <button type="button" class="dp-chip" onclick="setDown(this, 10)">10%</button>
+            <button type="button" class="dp-chip active" onclick="setDown(this, 20)">20%</button>
+            <button type="button" class="dp-chip" onclick="setDown(this, 30)">30%</button>
+            <button type="button" class="dp-chip" onclick="setDown(this, 'custom')">Custom</button>
+          </div>
+          <input type="range" id="down" min="10" max="50" step="1" value="20" oninput="updateCalcFromCustom()" style="display:none; margin-top: 12px;">
+        </div>
+
+        <div class="slider-row">
+          <div class="slider-label" style="margin-bottom: 10px; display: block;">Loan Term</div>
+          <div class="term-row">
+            <button type="button" class="term-pill" onclick="selectTerm(this, 10)">10 yr</button>
+            <button type="button" class="term-pill" onclick="selectTerm(this, 15)">15 yr</button>
+            <button type="button" class="term-pill active" onclick="selectTerm(this, 20)">20 yr</button>
+          </div>
+        </div>
+
+        <div class="result-panel">
+          <div class="result-row">
+            <div class="left">
+              <div class="result-label" id="result-label">Estimated Monthly Payment</div>
+              <div class="result-main"><span id="result-main-value">$4,871</span><span class="per" id="result-per">/mo</span></div>
+            </div>
+            <div class="result-compare">
+              Estimate based on network rates.
+              <span class="save" id="savings">$357 lower than industry typical</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="config-cta-row">
+          <button class="btn btn-primary full" onclick="goToStage(1)">
+            Continue with these numbers
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+
+        <div class="config-note">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          Soft credit check only. Zero impact to your score.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LENDER STRIP ============ -->
+<section class="shell">
+  <div class="lender-strip">
+    <div class="lender-strip-head">
+      <div class="label">EasyFund Matching Lender Network</div>
+    </div>
+    <div class="lender-grid">
+      <div class="lender-logo wells">WELLS FARGO</div>
+      <div class="lender-logo fifth">FIFTH THIRD</div>
+      <div class="lender-logo shore">SHORE PREMIER</div>
+      <div class="lender-logo centennial">CENTENNIAL BANK</div>
+      <div class="lender-logo octane">OCTANE</div>
+      <div class="lender-logo akf">
+        AKF BANK
+        <span class="sub">DEUTSCHLAND</span>
+      </div>
+    </div>
+
+    <!-- Compliance strip: SOC2, GDPR, CCPA -->
+    <div class="compliance-strip">
+      <div class="compliance-item">
+        <div class="cs-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="cs-text">
+          <div class="cs-title">SOC 2 Type II</div>
+          <div class="cs-sub">Certified</div>
+        </div>
+      </div>
+      <div class="compliance-divider"></div>
+      <div class="compliance-item">
+        <div class="cs-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="cs-text">
+          <div class="cs-title">GDPR</div>
+          <div class="cs-sub">Compliant</div>
+        </div>
+      </div>
+      <div class="compliance-divider"></div>
+      <div class="compliance-item">
+        <div class="cs-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="cs-text">
+          <div class="cs-title">CCPA</div>
+          <div class="cs-sub">Aligned</div>
+        </div>
+      </div>
+      <div class="compliance-divider"></div>
+      <div class="compliance-item">
+        <div class="cs-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <div class="cs-text">
+          <div class="cs-title">256-bit AES</div>
+          <div class="cs-sub">Encrypted end-to-end</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS SECTION ============ -->
+<section class="shell">
+  <div class="reviews-section">
+    <div class="reviews-head reveal-on-scroll">
+      <div class="copy">
+        <div class="eyebrow" style="margin-bottom: 12px; display: inline-block;">What Buyers Say</div>
+        <h2 class="h2">Reviews from buyers we have matched.</h2>
+        <p>Specific vessels. Specific outcomes. From real yacht buyers who completed the EasyFund process.</p>
+      </div>
+      <div class="reviews-summary">
+        <div>
+          <div class="stars">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="label" style="margin-top: 6px;">Average rating across verified buyers</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- PLACEHOLDER reviews. Replace with real buyer quotes before production. -->
+      <div class="review-card reveal-on-scroll">
+        <div class="review-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">The dealer quoted me 7.4 percent on a twenty-year loan. EasyFund matched me with Fifth Third at 6.1. That is eighty thousand dollars over the life of the loan. The pre-approval letter was in my inbox before the end of the day.</p>
+        <div class="review-meta">
+          <div class="review-avatar">MR</div>
+          <div class="info">
+            <div class="name">Marcus R.</div>
+            <div class="detail">Viking 68 Convertible · Fort Lauderdale, FL</div>
+          </div>
+          <span class="review-verified">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            Verified
+          </span>
+        </div>
+      </div>
+
+      <div class="review-card reveal-on-scroll">
+        <div class="review-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">I walked onto the dock with a pre-approval letter from Wells Fargo. The broker stopped negotiating the financing and started negotiating the boat. That is what I needed. Three days from application to funding.</p>
+        <div class="review-meta">
+          <div class="review-avatar">EH</div>
+          <div class="info">
+            <div class="name">Elena H.</div>
+            <div class="detail">Azimut 60 Flybridge · Miami Beach, FL</div>
+          </div>
+          <span class="review-verified">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            Verified
+          </span>
+        </div>
+      </div>
+
+      <div class="review-card reveal-on-scroll">
+        <div class="review-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="review-quote">First boat purchase. Had no idea what I was doing. The calculator let me figure out what I could actually afford before I wasted anyone's time. Shore Premier came back with a rate the dealer could not match. Simple process from start to finish.</p>
+        <div class="review-meta">
+          <div class="review-avatar">DK</div>
+          <div class="info">
+            <div class="name">David K.</div>
+            <div class="detail">Beneteau Oceanis 46.1 · Newport Beach, CA</div>
+          </div>
+          <span class="review-verified">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            Verified
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROOF NUMBERS ============ -->
+<section class="shell">
+  <div class="proof-row">
+    <div class="proof-stat">
+      <div class="n">$50K to $50M</div>
+      <div class="l">Loan Range</div>
+    </div>
+    <div class="proof-stat">
+      <div class="n">60 sec</div>
+      <div class="l">Average Match Time</div>
+    </div>
+    <div class="proof-stat">
+      <div class="n">4 to 14 days</div>
+      <div class="l">Funding Window</div>
+    </div>
+    <div class="proof-stat">
+      <div class="n">Fully Digital</div>
+      <div class="l">No Email Chains, No Phone Tag</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="shell block">
+  <div class="hiw-head reveal-on-scroll">
+    <span class="eyebrow">How EasyFund Works</span>
+    <h2 class="h2">Three steps to your pre-approval.</h2>
+    <p class="sub">EasyFund connects yacht buyers with lenders based on your credit profile and financing preferences. The application takes around two minutes. The pre-approval letter follows within 24 hours.</p>
+  </div>
+
+  <div class="hiw-grid">
+    <div class="hiw-card reveal-on-scroll">
+      <div class="hiw-number">1</div>
+      <h3 class="h3">Calculate and apply</h3>
+      <p>Enter your boat details and financial profile. Around two minutes total. Credit check is soft only, so your score is not affected.</p>
+      <div class="detail">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        No SSN required at this stage
+      </div>
+    </div>
+
+    <div class="hiw-card reveal-on-scroll">
+      <div class="hiw-number">2</div>
+      <h3 class="h3">Get matched</h3>
+      <p>EasyFund finds you a lender match from our network based on your credit profile, vessel type, and loan size. The full match details are revealed once you complete the application.</p>
+      <div class="detail">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        Takes around 60 seconds
+      </div>
+    </div>
+
+    <div class="hiw-card reveal-on-scroll">
+      <div class="hiw-number">3</div>
+      <h3 class="h3">Receive your pre-approval</h3>
+      <p>Complete the full application to receive your pre-approval letter within 24 hours. Bring it to the dealer when negotiating the purchase price.</p>
+      <div class="detail">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        Valid for 30 to 60 days
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPARE BAND ============ -->
+<section class="shell block">
+  <div class="compare-band">
+    <div class="compare-grid">
+      <div>
+        <div class="compare-eyebrow">A smarter way to finance</div>
+        <h2 class="compare-h2">What you see first is not always your best option.</h2>
+        <p class="lede-dark">Most yacht buyers accept the first financing option put in front of them. EasyFund widens that view. One short application connects you with lenders across our network so you see your real range before you commit. Many buyers find they save <strong>tens of thousands of dollars</strong> over the life of the loan, simply by comparing.</p>
+
+        <!-- Match-or-better promise -->
+        <div class="promise-card">
+          <div class="promise-badge">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="promise-content">
+            <div class="promise-title">The EasyFund Match Promise</div>
+            <p class="promise-text">If a lender in our network cannot meet or beat your written quote from any other source, we waive your application and processing fees. Worth around $1,000.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="compare-table">
+        <div class="compare-row head">
+          <div></div>
+          <div style="text-align: center;">Industry Typical</div>
+          <div style="text-align: center;">EasyFund</div>
+        </div>
+        <div class="compare-row">
+          <div class="col-label">Markup on lender rate</div>
+          <div class="col-them">1.0 to 2.0%</div>
+          <div class="col-us us-accent">None</div>
+        </div>
+        <div class="compare-row">
+          <div class="col-label">Soft-pull rate check</div>
+          <div class="col-them x">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </div>
+          <div class="col-us check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="col-label">Multiple lender offers</div>
+          <div class="col-them x">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </div>
+          <div class="col-us check">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        </div>
+        <div class="compare-row">
+          <div class="col-label">Time to rate</div>
+          <div class="col-them">Days</div>
+          <div class="col-us us-accent">60 seconds</div>
+        </div>
+        <div class="compare-row">
+          <div class="col-label">Pre-approval letter</div>
+          <div class="col-them">3 to 7 days</div>
+          <div class="col-us us-accent">Within 24 hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="shell block">
+  <div class="hiw-head reveal-on-scroll">
+    <span class="eyebrow">Frequently Asked</span>
+    <h2 class="h2">Answers to the questions buyers ask most.</h2>
+  </div>
+
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>How does a yacht loan work?</summary>
+      <div class="faq-body">A yacht loan is a secured installment loan. The vessel itself serves as collateral, similar to how a home serves as collateral for a mortgage. Terms typically range from 10 to 20 years. Down payments are usually 10 to 30 percent of the purchase price, depending on the boat age, loan size, and borrower credit profile. Most yacht loans in the EasyFund network carry fixed rates for the full term, so the monthly payment does not change.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What credit score is needed for a yacht loan?</summary>
+      <div class="faq-body">Lenders in the EasyFund network require a minimum credit score of 680. Scores above 720 typically receive the best available rates. Applications with scores under 680 will likely not qualify at this time. If you are unsure of your score, the soft credit check during the application will confirm it without affecting your credit.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Will checking my rate affect my credit score?</summary>
+      <div class="faq-body">No. EasyFund uses a soft credit pull to match you with lenders. A soft pull does not affect your credit score and is not reported to creditors. A hard inquiry, which can affect your score by a small amount, is only performed after you select a lender and proceed with the full application.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Can I finance a used yacht?</summary>
+      <div class="faq-body">Yes. Most lenders in the EasyFund network finance used yachts up to 20 years of age, depending on vessel type, condition, and marine survey results. Boats older than 20 years may not qualify for financing under standard lender policies. Newer vessels typically qualify for longer terms and lower down payments.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What documents are needed for a yacht loan?</summary>
+      <div class="faq-body">Most lenders in the EasyFund network require two years of personal tax returns, recent asset statements, a completed loan application, and details of the vessel being purchased. A marine survey is typically required for boats over five years old. Documents are uploaded securely through the EasyFund portal.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Which lenders are in the EasyFund network?</summary>
+      <div class="faq-body">The EasyFund network includes Wells Fargo, Fifth Third Bank, Shore Premier Financing, Centennial Bank, Octane, and AKF Bank in Germany, along with additional partners added regularly. Each lender has its own underwriting criteria, rate sheet, and preferred vessel types. EasyFund matches your application with the lenders whose programs fit your profile.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="shell block">
+  <div class="final-cta reveal-on-scroll">
+    <h2 class="h2">See your rate offers today.</h2>
+    <p>Soft credit check only. Around 60 seconds. No salesperson will cold call you.</p>
+    <div class="final-cta-buttons">
+      <a href="#" onclick="goToStage(1); return false;" class="btn btn-primary btn-lg">
+        Start your application
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#" onclick="openChat(); return false;" class="btn btn-ghost btn-lg">Chat with a specialist</a>
+    </div>
+  </div>
+</section>
+
+</div><!-- /stage 0 -->
+
+<!-- =========================================================
+     STAGE 1: CONTACT DETAILS
+     Compact layout. Fits in 13" viewport without scroll.
+     First name and last name on one row. Minimal fields.
+     ========================================================= -->
+<div class="stage stage-app" data-stage="1">
+  <header class="step-header">
+    <div class="shell step-header-inner">
+      <button class="step-back" onclick="goToStage(0)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <div class="step-progress">
+        <div class="step-dot done"></div>
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+        <div class="step-dot"></div>
+      </div>
+      <span class="step-label">Step 2 of 4</span>
+    </div>
+  </header>
+
+  <section class="shell app-step-shell">
+    <div class="step-header-row">
+      <div class="step-eyebrow">About You</div>
+      <div class="step-time">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Around 20 seconds
+      </div>
+    </div>
+
+    <h2 class="h2 step-headline">A few details about you.</h2>
+    <p class="step-sub">So we can run your match and send the results to you. No salesperson will cold call you.</p>
+
+    <div class="step-form">
+      <div class="field-row two">
+        <div class="field">
+          <label class="field-label">First Name <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="Alex" autocomplete="given-name" required>
+        </div>
+        <div class="field">
+          <label class="field-label">Last Name <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="Morgan" autocomplete="family-name" required>
+        </div>
+      </div>
+
+      <div class="field-row two">
+        <div class="field">
+          <label class="field-label">Email <span class="req">*</span></label>
+          <input class="input" type="email" placeholder="you@example.com" autocomplete="email" inputmode="email" required>
+        </div>
+        <div class="field">
+          <label class="field-label">Mobile Phone <span class="req">*</span></label>
+          <input class="input" type="tel" placeholder="(305) 555 0199" autocomplete="tel" inputmode="tel" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">Home Address <span class="req">*</span></label>
+        <input class="input" type="text" placeholder="500 Las Olas Blvd" autocomplete="address-line1" required>
+      </div>
+
+      <div class="field-row three">
+        <div class="field">
+          <label class="field-label">City <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="Fort Lauderdale" autocomplete="address-level2" required>
+        </div>
+        <div class="field">
+          <label class="field-label">State <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="FL" autocomplete="address-level1" maxlength="2" required>
+        </div>
+        <div class="field">
+          <label class="field-label">Zip Code <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="33301" autocomplete="postal-code" inputmode="numeric" maxlength="5" required>
+        </div>
+      </div>
+
+      <div class="step-trust-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        Your address is used for the soft credit pull only. Not shared with any lender until you select one.
+      </div>
+
+      <button class="btn btn-primary btn-lg step-continue" onclick="goToStage(2)">
+        Continue
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- =========================================================
+     STAGE 2: FINANCIAL PROFILE
+     Ranges only. Visual cards. Trust block at soft-pull moment.
+     No make/model question at this stage.
+     ========================================================= -->
+<div class="stage stage-app" data-stage="2">
+  <header class="step-header">
+    <div class="shell step-header-inner">
+      <button class="step-back" onclick="goToStage(1)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <div class="step-progress">
+        <div class="step-dot done"></div>
+        <div class="step-dot done"></div>
+        <div class="step-dot active"></div>
+        <div class="step-dot"></div>
+      </div>
+      <span class="step-label">Step 3 of 4</span>
+    </div>
+  </header>
+
+  <section class="shell app-step-shell">
+    <div class="step-header-row">
+      <div class="step-eyebrow">Financial Profile</div>
+      <div class="step-time">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        Around 20 seconds
+      </div>
+    </div>
+
+    <h2 class="h2 step-headline">Your financial picture.</h2>
+    <p class="step-sub">Ranges only. Matching lenders verify exact numbers later in underwriting.</p>
+
+    <div class="step-form">
+      <div class="field">
+        <label class="field-label">Credit Score Range</label>
+        <div class="choice-grid four" id="credit-grid">
+          <button type="button" class="choice-card active" onclick="selectCredit(this, 'excellent')">
+            <div class="c-label">760+</div>
+            <div class="c-sub">Excellent</div>
+            <div class="check-dot"></div>
+          </button>
+          <button type="button" class="choice-card" onclick="selectCredit(this, 'very-good')">
+            <div class="c-label">720 to 759</div>
+            <div class="c-sub">Very good</div>
+            <div class="check-dot"></div>
+          </button>
+          <button type="button" class="choice-card" onclick="selectCredit(this, 'good')">
+            <div class="c-label">680 to 719</div>
+            <div class="c-sub">Good</div>
+            <div class="check-dot"></div>
+          </button>
+          <button type="button" class="choice-card" onclick="selectCredit(this, 'low')">
+            <div class="c-label">Under 680</div>
+            <div class="c-sub">Or not sure</div>
+            <div class="check-dot"></div>
+          </button>
+        </div>
+
+        <!-- Warning only shows when Under 680 is selected -->
+        <div class="credit-warning" id="credit-warning">
+          <div class="cw-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          </div>
+          <div class="cw-content">
+            <h5>Heads up about your credit score.</h5>
+            <p>Lenders in the EasyFund network require a minimum credit score of 680. If your score is below that threshold, you will likely not qualify at this time. If you are unsure of your score, continue and the soft credit check will confirm it without affecting your score.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="field-label">Annual Household Income</label>
+        <div class="choice-grid four">
+          <button type="button" class="choice-card" onclick="toggleChoice(this)">
+            <div class="c-label">$250K to $500K</div>
+            <div class="check-dot"></div>
+          </button>
+          <button type="button" class="choice-card active" onclick="toggleChoice(this)">
+            <div class="c-label">$500K to $1M</div>
+            <div class="check-dot"></div>
+          </button>
+          <button type="button" class="choice-card" onclick="toggleChoice(this)">
+            <div class="c-label">$1M to $2.5M</div>
+            <div class="check-dot"></div>
+          </button>
+          <button type="button" class="choice-card" onclick="toggleChoice(this)">
+            <div class="c-label">$2.5M+</div>
+            <div class="check-dot"></div>
+          </button>
+        </div>
+      </div>
+
+      <div class="trust-block">
+        <div class="tb-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="tb-content">
+          <h4>Soft credit check only. Zero impact to your score.</h4>
+          <p>EasyFund uses a bureau-grade soft pull through Experian to find your lender match. It does not appear as a hard inquiry and is not reported to creditors.</p>
+        </div>
+      </div>
+
+      <button class="btn btn-primary btn-lg step-continue" onclick="revealMatch()">
+        Check my match
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- =========================================================
+     STAGE 3: MATCH REVEAL
+     No urgency. No countdown. Transparent comparison.
+     ========================================================= -->
+<div class="stage stage-app" data-stage="3">
+  <header class="step-header">
+    <div class="shell step-header-inner">
+      <button class="step-back" onclick="goToStage(2)">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+        Back
+      </button>
+      <div class="step-progress">
+        <div class="step-dot done"></div>
+        <div class="step-dot done"></div>
+        <div class="step-dot done"></div>
+        <div class="step-dot active"></div>
+      </div>
+      <span class="step-label">Step 4 of 4</span>
+    </div>
+  </header>
+
+  <section class="shell app-step-shell wide">
+    <!-- Approved match panel (shown for credit tiers excellent / very-good / good) -->
+    <div class="reveal" id="reveal-approved">
+      <div class="reveal-inner">
+        <div class="reveal-kicker">
+          <span class="d"></span>
+          Match found
+        </div>
+
+        <h2 class="reveal-h2">You qualify. Here is your estimated rate range.</h2>
+
+        <div class="reveal-rate">
+          <span class="num">6.10</span>
+          <span class="to">to</span>
+          <span class="num alt">6.45</span>
+          <span class="pct">%</span>
+          <span class="apr">APR</span>
+        </div>
+
+        <p class="reveal-sub">Based on your profile, EasyFund has identified a lender match in our network. The exact rate and final terms are determined after full underwriting. <strong>Complete your full application to receive your pre-approval letter and confirmed terms within 24 hours.</strong></p>
+
+        <div class="breakdown">
+          <div class="bkd">
+            <div class="l">Monthly Payment</div>
+            <div class="v">$4,871 to $4,994</div>
+          </div>
+          <div class="bkd">
+            <div class="l">Loan Amount</div>
+            <div class="v">$680,000</div>
+          </div>
+          <div class="bkd muted">
+            <div class="l">Industry Typical</div>
+            <div class="v">7.20%</div>
+          </div>
+          <div class="bkd highlight">
+            <div class="l">Savings Over Term</div>
+            <div class="v">$92,400</div>
+          </div>
+        </div>
+
+        <div class="saved-note">
+          <div class="sn-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <h5>Your application has been saved.</h5>
+            <p>Return any time to complete it. Your lender match is confirmed once you finalize.</p>
+          </div>
+        </div>
+
+        <div class="reveal-cta">
+          <button class="btn btn-primary btn-lg reveal-primary">
+            Continue to full application
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="btn btn-lg reveal-ghost" onclick="openChat()">
+            Chat with a specialist
+          </button>
+        </div>
+
+        <p class="reveal-disclaimer">YachtWay is a technology platform that connects buyers with matching lenders. YachtWay is not a lender and does not offer financial advice. All loan terms are set by the matching lender based on their own underwriting criteria.</p>
+      </div>
+    </div>
+
+    <!-- Declined panel (shown for credit tier "low", i.e., Under 680) -->
+    <div class="reveal declined" id="reveal-declined" style="display: none;">
+      <div class="reveal-inner">
+        <div class="reveal-kicker kicker-muted">
+          <span class="d-muted"></span>
+          No match at this time
+        </div>
+
+        <h2 class="reveal-h2">We were unable to find a match in our network.</h2>
+
+        <p class="reveal-sub" style="margin-top: 24px;">Based on the credit profile you provided, your application does not currently meet the minimum requirements of lenders in the EasyFund network. Most lenders in our network require a credit score of 680 or higher. This is not a denial of credit, and no hard inquiry has been made on your record.</p>
+
+        <div class="decline-next">
+          <div class="dn-title">What you can do next</div>
+          <div class="dn-item">
+            <div class="dn-num">1</div>
+            <div class="dn-text">
+              <h5>Work with a credit specialist</h5>
+              <p>Speak with our team for guidance on steps that may improve your credit profile and qualify you in the future.</p>
+            </div>
+          </div>
+          <div class="dn-item">
+            <div class="dn-num">2</div>
+            <div class="dn-text">
+              <h5>Apply with a co-borrower</h5>
+              <p>A co-borrower with a qualifying credit profile may change the outcome. You can restart the application with two applicants.</p>
+            </div>
+          </div>
+          <div class="dn-item">
+            <div class="dn-num">3</div>
+            <div class="dn-text">
+              <h5>Return when your profile changes</h5>
+              <p>Credit profiles can improve within months. You are welcome to check your match again at any time with no impact to your score.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-cta">
+          <button class="btn btn-primary btn-lg reveal-primary" onclick="openChat()">
+            Speak with our team
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="btn btn-lg reveal-ghost" onclick="goToStage(0)">
+            Return to homepage
+          </button>
+        </div>
+
+        <p class="reveal-disclaimer">This is not a denial of credit under the Equal Credit Opportunity Act. EasyFund is a matching platform and has not performed a hard inquiry on your credit. No entry has been made on your credit report. You are welcome to seek financing through other channels.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- =========================================================
+     LIVE ACTIVITY TOAST
+     Displays rotating rate-check notifications from boating-heavy
+     states. Increments the hero activity counter each time it fires.
+
+     PRODUCTION NOTE: Replace the placeholder event list below
+     with a real websocket or polling feed from the backend rate-
+     check logs. Generalize to state level and delay by 60 to 120
+     seconds for privacy. If real data is unavailable, keep this
+     placeholder but consider whether the approach fits the FTC
+     endorsement guidelines for the jurisdiction.
+     ========================================================= -->
+<div class="activity-toast" id="activity-toast" aria-live="polite">
+  <div class="at-inner">
+    <div class="at-pulse"><span></span></div>
+    <div class="at-content">
+      <div class="at-line">Someone in <strong id="at-state">California</strong> just checked their rate</div>
+      <div class="at-sub" id="at-time">Just now</div>
+    </div>
+  </div>
+</div>
+
+<footer class="shell">
+  <div class="footer-inner">
+    <div class="footer-disclaimer">
+      YachtWay is a technology platform that connects buyers with matching lenders. YachtWay is not a lender and does not offer financial advice. All loan terms are set by the matching lender based on their own underwriting criteria. Lender partners are listed with their permission.
+    </div>
+    <div class="footer-copy">© 2026 YachtWay. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+  // Stage navigation
+  function goToStage(n) {
+    document.querySelectorAll('.stage').forEach(s => s.classList.remove('active'));
+    const target = document.querySelector(`[data-stage="${n}"]`);
+    if (target) {
+      target.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+    // Hide activity toast once inside the application flow
+    if (n === 0) {
+      document.body.classList.remove('in-app');
+    } else {
+      document.body.classList.add('in-app');
+    }
+  }
+
+  // ============================================================
+  // HELP MENU (chat primary, call secondary)
+  // ============================================================
+  function toggleHelpMenu(event) {
+    event.stopPropagation();
+    const menu = document.getElementById('help-menu');
+    const trigger = document.getElementById('help-trigger');
+    const isOpen = menu.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+
+  function closeHelpMenu() {
+    const menu = document.getElementById('help-menu');
+    const trigger = document.getElementById('help-trigger');
+    menu.classList.remove('open');
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    const wrap = document.querySelector('.header-help-wrap');
+    if (wrap && !wrap.contains(e.target)) {
+      closeHelpMenu();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeHelpMenu();
+  });
+
+  // Chat launcher stub.
+  // PRODUCTION: replace with the actual chat widget trigger
+  // (Intercom, Crisp, Drift, Zendesk, or in-house). For now, this
+  // function is a visible placeholder so the option wires through.
+  function openChat() {
+    closeHelpMenu();
+    // Example integrations:
+    //   if (window.Intercom) window.Intercom('show');
+    //   if (window.$crisp) window.$crisp.push(['do', 'chat:open']);
+    //   if (window.drift) window.drift.api.openChat();
+    alert('Chat widget will open here. Connect your chat provider in production.');
+  }
+
+  function toggleChoice(el) {
+    const parent = el.parentElement;
+    parent.querySelectorAll('.choice-card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  // Credit range selector with conditional warning for Under 680
+  let selectedCredit = 'excellent'; // default matches the pre-selected card
+  function selectCredit(el, tier) {
+    selectedCredit = tier;
+    const parent = el.parentElement;
+    parent.querySelectorAll('.choice-card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+    const warning = document.getElementById('credit-warning');
+    if (tier === 'low') {
+      warning.classList.add('visible');
+    } else {
+      warning.classList.remove('visible');
+    }
+  }
+
+  function revealMatch() {
+    // Show the appropriate outcome panel based on credit tier.
+    // Sub-680 shows the decline state, everyone else sees the match state.
+    const approvedPanel = document.getElementById('reveal-approved');
+    const declinedPanel = document.getElementById('reveal-declined');
+    if (selectedCredit === 'low') {
+      approvedPanel.style.display = 'none';
+      declinedPanel.style.display = 'block';
+    } else {
+      approvedPanel.style.display = 'block';
+      declinedPanel.style.display = 'none';
+    }
+    goToStage(3);
+  }
+
+  // Configurator state
+  let loanTerm = 20;
+  let downPct = 20;
+  let mode = 'price'; // 'price' or 'payment'
+  const networkStartingRate = 0.0599;
+  const industryTypicalRate = 0.072;
+
+  function setType(el) {
+    el.parentElement.querySelectorAll('.type-big, .type-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  function selectTerm(el, term) {
+    el.parentElement.querySelectorAll('.term-pill').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    loanTerm = term;
+    updateCalc();
+  }
+
+  function setDown(el, value) {
+    el.parentElement.querySelectorAll('.dp-chip').forEach(p => p.classList.remove('active'));
+    el.classList.add('active');
+    const customSlider = document.getElementById('down');
+    if (value === 'custom') {
+      customSlider.style.display = 'block';
+      downPct = parseInt(customSlider.value);
+    } else {
+      customSlider.style.display = 'none';
+      downPct = value;
+      customSlider.value = value;
+    }
+    updateCalc();
+  }
+
+  function updateCalcFromCustom() {
+    downPct = parseInt(document.getElementById('down').value);
+    updateCalc();
+  }
+
+  function setMode(newMode) {
+    mode = newMode;
+    document.getElementById('mode-price').classList.toggle('active', mode === 'price');
+    document.getElementById('mode-payment').classList.toggle('active', mode === 'payment');
+    document.getElementById('price-row').style.display = (mode === 'price') ? 'block' : 'none';
+    document.getElementById('payment-row').style.display = (mode === 'payment') ? 'block' : 'none';
+    document.getElementById('result-label').textContent = (mode === 'price') ? 'Estimated Monthly Payment' : 'Purchase Power';
+    document.getElementById('result-per').textContent = (mode === 'price') ? '/mo' : '';
+    updateCalc();
+  }
+
+  function calcPayment(principal, annualRate, years) {
+    const monthly = annualRate / 12;
+    const n = years * 12;
+    if (monthly === 0) return principal / n;
+    return principal * (monthly * Math.pow(1 + monthly, n)) / (Math.pow(1 + monthly, n) - 1);
+  }
+
+  // Inverse: given a desired monthly payment, compute the loan principal
+  function calcPrincipalFromPayment(payment, annualRate, years) {
+    const monthly = annualRate / 12;
+    const n = years * 12;
+    if (monthly === 0) return payment * n;
+    return payment * (Math.pow(1 + monthly, n) - 1) / (monthly * Math.pow(1 + monthly, n));
+  }
+
+  function formatMoney(n) {
+    return '$' + Math.round(n).toLocaleString('en-US');
+  }
+
+  // ============================================================
+  // PRICE SLIDER: log-scale mapping
+  //
+  // Linear mapping from $50K to $50M makes the slider useless for
+  // the majority of buyers (everything under $1M fits in the first
+  // 2% of the track). Log scale gives equal real-estate to each
+  // order of magnitude, so dragging feels precise whether the
+  // buyer is looking at $200K or $20M.
+  // ============================================================
+  const PRICE_MIN = 50000;
+  const PRICE_MAX = 50000000;
+  const PRICE_LOG_MIN = Math.log(PRICE_MIN);
+  const PRICE_LOG_MAX = Math.log(PRICE_MAX);
+
+  function sliderToPrice(sliderVal) {
+    // sliderVal is 0 to 1000
+    const t = sliderVal / 1000;
+    const price = Math.exp(PRICE_LOG_MIN + t * (PRICE_LOG_MAX - PRICE_LOG_MIN));
+    return snapPrice(price);
+  }
+
+  // Snap prices to sensible increments based on magnitude.
+  // Avoids twitchy values like $247,382 while preserving feel.
+  function snapPrice(price) {
+    if (price < 250000) return Math.round(price / 5000) * 5000;
+    if (price < 1000000) return Math.round(price / 10000) * 10000;
+    if (price < 5000000) return Math.round(price / 50000) * 50000;
+    if (price < 20000000) return Math.round(price / 100000) * 100000;
+    return Math.round(price / 500000) * 500000;
+  }
+
+  function updateCalc() {
+    if (mode === 'price') {
+      const sliderVal = parseInt(document.getElementById('price').value);
+      const price = sliderToPrice(sliderVal);
+      const downAmount = price * (downPct / 100);
+      const loanAmount = price - downAmount;
+
+      document.getElementById('price-display').textContent = formatMoney(price);
+      document.getElementById('down-display').textContent = formatMoney(downAmount) + ' · ' + downPct + '%';
+
+      const ourPayment = calcPayment(loanAmount, networkStartingRate, loanTerm);
+      const industryPayment = calcPayment(loanAmount, industryTypicalRate, loanTerm);
+      const diff = industryPayment - ourPayment;
+
+      document.getElementById('result-main-value').textContent = formatMoney(ourPayment);
+      document.getElementById('savings').textContent = formatMoney(diff) + ' lower than industry typical';
+    } else {
+      // Payment mode: calculate purchase power
+      const targetPayment = parseInt(document.getElementById('payment-target').value);
+      const loanAmount = calcPrincipalFromPayment(targetPayment, networkStartingRate, loanTerm);
+      // Total purchase power = loan / (1 - downPct/100)
+      const purchasePower = loanAmount / (1 - downPct / 100);
+      const downAmount = purchasePower - loanAmount;
+
+      document.getElementById('payment-target-display').textContent = formatMoney(targetPayment);
+      document.getElementById('down-display').textContent = formatMoney(downAmount) + ' · ' + downPct + '%';
+
+      // Industry typical would only afford this much at that payment
+      const industryLoan = calcPrincipalFromPayment(targetPayment, industryTypicalRate, loanTerm);
+      const industryPower = industryLoan / (1 - downPct / 100);
+      const diff = purchasePower - industryPower;
+
+      document.getElementById('result-main-value').textContent = formatMoney(purchasePower);
+      document.getElementById('savings').textContent = formatMoney(diff) + ' more boat than industry typical';
+    }
+  }
+
+  updateCalc();
+
+  // ============================================================
+  // ACTIVITY COUNTER (rolling last-hour window)
+  //
+  // Shows "rate checks in the last hour" which is a rolling window
+  // rather than a cumulative total. The number drifts within a
+  // plausible band (180 to 230) as toasts fire. Each toast bumps
+  // the count by 1 (a new check just came in), and periodically
+  // the count decrements by 1 (a check from 61+ minutes ago just
+  // dropped out of the window). Net effect is a number that feels
+  // alive but stays believable.
+  //
+  // Not persisted to localStorage because the underlying metric
+  // is a rolling window, not a running total.
+  //
+  // PRODUCTION: replace with the actual count from backend rate-
+  // check logs over the preceding 60 minutes.
+  // ============================================================
+
+  function initActivityCounter() {
+    // Start somewhere in the target band, biased to the middle
+    const start = 180 + Math.floor(Math.random() * 40);
+    document.getElementById('activity-count').textContent = start.toString();
+  }
+  initActivityCounter();
+
+  // Every 8 to 14 seconds, decrement by 1 (an old check drops out
+  // of the rolling window). This offsets the toast increments so
+  // the number hovers rather than climbs forever.
+  function scheduleDecrement() {
+    const delay = 8000 + Math.floor(Math.random() * 6000);
+    setTimeout(() => {
+      const el = document.getElementById('activity-count');
+      const current = parseInt(el.textContent);
+      // Keep it within a sensible floor
+      if (current > 170) {
+        el.textContent = (current - 1).toString();
+      }
+      scheduleDecrement();
+    }, delay);
+  }
+  scheduleDecrement();
+
+  // ============================================================
+  // LIVE ACTIVITY TOAST ENGINE
+  //
+  // Rotates through boating-popular US states on a randomized
+  // interval. First toast fires at 6 seconds, then 12 to 22 seconds
+  // between each subsequent appearance. Each time a toast fires,
+  // the hero activity counter ticks up by one, creating a visible
+  // link between the notification and the stat.
+  //
+  // PRODUCTION: replace the STATES array and the pickState function
+  // with a feed of real state-level rate-check events from the
+  // backend. Delay each event by 60 to 120 seconds for privacy.
+  // ============================================================
+
+  const STATES = [
+    // Weighted toward real boating market share. Florida dominates,
+    // Texas/California/NY/NC follow, others appear less frequently.
+    { name: 'Florida', weight: 30 },
+    { name: 'California', weight: 14 },
+    { name: 'Texas', weight: 12 },
+    { name: 'New York', weight: 8 },
+    { name: 'North Carolina', weight: 7 },
+    { name: 'Michigan', weight: 5 },
+    { name: 'Washington', weight: 5 },
+    { name: 'Georgia', weight: 4 },
+    { name: 'South Carolina', weight: 4 },
+    { name: 'Maryland', weight: 4 },
+    { name: 'Virginia', weight: 3 },
+    { name: 'Rhode Island', weight: 2 },
+    { name: 'Massachusetts', weight: 2 },
+  ];
+
+  function pickState(lastName) {
+    // Weighted random selection, avoiding immediate repeats
+    const pool = STATES.filter(s => s.name !== lastName);
+    const totalWeight = pool.reduce((sum, s) => sum + s.weight, 0);
+    let r = Math.random() * totalWeight;
+    for (const s of pool) {
+      r -= s.weight;
+      if (r <= 0) return s.name;
+    }
+    return pool[0].name;
+  }
+
+  const toast = document.getElementById('activity-toast');
+  const toastState = document.getElementById('at-state');
+  const toastTime = document.getElementById('at-time');
+  const counterEl = document.getElementById('activity-count');
+  let lastState = null;
+  let toastTimeout;
+
+  function bumpCounter() {
+    const current = parseInt(counterEl.textContent.replace(/,/g, ''));
+    const next = current + 1;
+    counterEl.textContent = next.toString();
+    counterEl.classList.remove('tick');
+    // Force reflow so the animation re-triggers
+    void counterEl.offsetWidth;
+    counterEl.classList.add('tick');
+  }
+
+  function showToast() {
+    // Do not show while inside the application flow
+    if (document.body.classList.contains('in-app')) {
+      scheduleNextToast();
+      return;
+    }
+
+    const state = pickState(lastState);
+    lastState = state;
+    toastState.textContent = state;
+    toastTime.textContent = 'Just now';
+
+    toast.classList.add('visible');
+    bumpCounter();
+
+    // Update the time label as the toast ages
+    setTimeout(() => { toastTime.textContent = 'A few seconds ago'; }, 3000);
+
+    // Hide after 5.5 seconds
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove('visible');
+      scheduleNextToast();
+    }, 5500);
+  }
+
+  function scheduleNextToast() {
+    // Random interval between 12 and 22 seconds for the next toast
+    const delay = 12000 + Math.floor(Math.random() * 10000);
+    setTimeout(showToast, delay);
+  }
+
+  // First toast fires at 6 seconds, giving the visitor a moment
+  // to orient to the page before the notification appears.
+  setTimeout(showToast, 6000);
+
+  // Scroll reveals
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal-on-scroll').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
