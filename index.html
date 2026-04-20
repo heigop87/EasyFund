@@ -1060,7 +1060,10 @@
     color: var(--brand-800);
   }
 
-  /* Compliance strip below lenders */
+  /* Compliance strip below lenders. Uses a muted brand-tinted
+     treatment rather than green, because these are institutional
+     certifications not success states. Green would imply "done"
+     or "go" which is the wrong signal for legal compliance. */
   .compliance-strip {
     margin-top: 32px;
     padding: 20px 0 0;
@@ -1080,8 +1083,8 @@
     width: 28px;
     height: 28px;
     border-radius: 6px;
-    background: var(--success-50);
-    color: var(--success-900);
+    background: rgba(135, 41, 250, 0.08);
+    color: var(--brand-700);
     display: grid;
     place-items: center;
     flex-shrink: 0;
@@ -1112,8 +1115,18 @@
     background: var(--gray-100);
   }
   @media (max-width: 860px) {
-    .compliance-strip { gap: 16px; padding: 16px 0 0; margin-top: 24px; }
+    /* On mobile, switch to a clean 2-column grid so 4 badges
+       display as 2x2 instead of wrapping awkwardly 3+1. */
+    .compliance-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 12px;
+      padding: 16px 0 0;
+      margin-top: 24px;
+      justify-items: start;
+    }
     .compliance-divider { display: none; }
+    .compliance-item { justify-self: start; }
   }
 
   /* ============ REVIEWS ============ */
@@ -1516,7 +1529,6 @@
     border-radius: var(--radius);
     padding: 24px;
     box-shadow: 0 20px 40px -12px rgba(38, 7, 84, 0.12), 0 2px 4px rgba(38, 7, 84, 0.04);
-    transform: rotate(-1deg);
     max-width: 380px;
     margin: 0 auto;
   }
@@ -1540,7 +1552,7 @@
   }
   .pfs-doc-title {
     font-family: 'Poppins', sans-serif;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 600;
     color: var(--brand-800);
     letter-spacing: -0.005em;
@@ -1548,29 +1560,29 @@
   }
   .pfs-doc-sub {
     font-family: 'Figtree', sans-serif;
-    font-size: 10px;
-    color: var(--gray-400);
-    margin-top: 1px;
+    font-size: 11px;
+    color: var(--gray-500);
+    margin-top: 2px;
   }
   .pfs-doc-section {
     margin-bottom: 14px;
   }
   .pfs-doc-section-label {
     font-family: 'Figtree', sans-serif;
-    font-size: 9px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--gray-400);
+    color: var(--gray-500);
     margin-bottom: 8px;
   }
   .pfs-doc-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 6px 0;
+    padding: 7px 0;
     font-family: 'Figtree', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
     color: var(--gray-500);
     border-bottom: 1px dashed var(--gray-50);
   }
@@ -1709,7 +1721,24 @@
     .help-menu::before { right: 22px; }
     .shell { padding: 0 20px; }
     section.block { padding: 48px 0; }
-    .hero-wrap { grid-template-columns: 1fr; gap: 32px; padding: 12px 0 8px; }
+    .hero-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 12px 0 8px;
+    }
+
+    /* On mobile, dissolve hero-copy so its children become direct
+       children of hero-wrap flex container. Then use order to
+       place hero-extras (activity + speed feature) after the
+       calculator. */
+    .hero-wrap .hero-copy { display: contents; }
+    .hero-wrap .eyebrow { order: 1; }
+    .hero-wrap .h1 { order: 2; }
+    .hero-wrap .lede { order: 3; }
+    .hero-wrap .hero-micro-trust { order: 4; }
+    .hero-wrap .configurator { order: 5; }
+    .hero-wrap .hero-extras { order: 6; }
     .lender-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .lender-logo { height: 60px; padding: 10px 14px; }
     .reviews-head { flex-direction: column; align-items: flex-start; }
@@ -1750,7 +1779,7 @@
      ============================================================ */
   .activity-indicator-prominent {
     margin-top: 24px;
-    display: inline-flex;
+    display: flex;
     align-items: stretch;
     background: var(--white);
     border: 1px solid rgba(135, 41, 250, 0.15);
@@ -3211,29 +3240,36 @@
         </span>
       </div>
 
-      <!-- Activity indicator: prominent live trust signal -->
-      <div class="activity-indicator-prominent">
-        <div class="ai-glow"></div>
-        <div class="ai-content">
-          <div class="ai-pulse"><span></span></div>
-          <div class="ai-text">
-            <span class="ai-num" id="activity-count">194</span>
-            <span class="ai-label">rate checks in the last hour</span>
+      <!-- Hero extras: activity indicator and speed feature.
+           On desktop they sit at the bottom of the left column below
+           the hero text. On mobile they reorder via CSS order to
+           flow after the calculator, so the user sees the configurator
+           first and trust signals below as reinforcement. -->
+      <div class="hero-extras">
+        <!-- Activity indicator: prominent live trust signal -->
+        <div class="activity-indicator-prominent">
+          <div class="ai-glow"></div>
+          <div class="ai-content">
+            <div class="ai-pulse"><span></span></div>
+            <div class="ai-text">
+              <span class="ai-num" id="activity-count">194</span>
+              <span class="ai-label">rate checks in the last hour</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Speed feature: elevated from the micro-trust row to its own
-           moment, since "60 seconds" is the single most persuasive
-           claim on the page for buyers who expect loan apps to take days. -->
-      <div class="speed-feature">
-        <div class="sf-numbers">
-          <span class="sf-num">60</span>
-          <span class="sf-unit">seconds</span>
-        </div>
-        <div class="sf-text">
-          <h4>From inputs to lender match.</h4>
-          <p>Most applications complete in around a minute. Soft credit check only, so nothing hits your report until you select a lender.</p>
+        <!-- Speed feature: elevated from the micro-trust row to its own
+             moment, since "60 seconds" is the single most persuasive
+             claim on the page for buyers who expect loan apps to take days. -->
+        <div class="speed-feature">
+          <div class="sf-numbers">
+            <span class="sf-num">60</span>
+            <span class="sf-unit">seconds</span>
+          </div>
+          <div class="sf-text">
+            <h4>From inputs to lender match.</h4>
+            <p>Most applications complete in around a minute. Soft credit check only, so nothing hits your report until you select a lender.</p>
+          </div>
         </div>
       </div>
     </div>
