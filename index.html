@@ -367,6 +367,88 @@
     grid-template-columns: 1fr 1.1fr;
     gap: 64px;
     align-items: start;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Hero section needs to contain the absolute network background */
+  .hero-shell {
+    position: relative;
+  }
+
+  /* Animated network graph background for the hero. Abstract
+     visualization of the matching product. */
+  .network-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.85;
+    overflow: hidden;
+  }
+  .network-bg svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Paths shimmer with a subtle stroke-dash flow */
+  .network-paths .np {
+    stroke-dasharray: 3 6;
+    animation: dashFlow 30s linear infinite;
+  }
+  .np-2 { animation-duration: 36s; animation-direction: reverse; }
+  .np-3 { animation-duration: 28s; }
+  .np-4 { animation-duration: 34s; animation-direction: reverse; }
+  .np-5 { animation-duration: 40s; }
+  .np-6 { animation-duration: 32s; animation-direction: reverse; }
+  @keyframes dashFlow {
+    to { stroke-dashoffset: -200; }
+  }
+
+  /* Lender nodes breathe gently */
+  .lender-node {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: nodeBreath 4s ease-in-out infinite;
+  }
+  .ln-1 { animation-delay: 0s; }
+  .ln-2 { animation-delay: 0.6s; }
+  .ln-3 { animation-delay: 1.2s; }
+  .ln-4 { animation-delay: 1.8s; }
+  .ln-5 { animation-delay: 2.4s; }
+  .ln-6 { animation-delay: 3.0s; }
+  @keyframes nodeBreath {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.4); }
+  }
+
+  /* Central hub ring expands outward continuously */
+  .hub-ring {
+    transform-origin: center;
+    transform-box: fill-box;
+    animation: hubPulse 3s ease-out infinite;
+  }
+  @keyframes hubPulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(4); opacity: 0; }
+  }
+
+  /* Data pulses traveling along paths */
+  .pulse {
+    opacity: 0.8;
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .np, .lender-node, .hub-ring, .pulse { animation: none; }
+    .network-pulses { display: none; }
+  }
+
+  /* Hide network graph on small screens where it gets cluttered */
+  @media (max-width: 860px) {
+    .network-bg { display: none; }
   }
   .hero-copy .eyebrow {
     display: inline-flex;
@@ -2210,6 +2292,127 @@
   }
 
   /* ============================================================
+     EXIT-INTENT SOFT PROMPT
+     A corner slide-in (bottom-right), not a modal. Appears on
+     genuine disengagement signals. Dismissible. One per session.
+     ============================================================ */
+  .exit-prompt {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 210;
+    max-width: 380px;
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: var(--radius);
+    box-shadow: 0 24px 48px -12px rgba(38, 7, 84, 0.25), 0 4px 16px rgba(38, 7, 84, 0.08);
+    padding: 20px 22px 20px 20px;
+    opacity: 0;
+    transform: translateY(20px) translateX(8px);
+    transition: opacity 0.4s var(--ease), transform 0.4s var(--ease);
+    pointer-events: none;
+  }
+  .exit-prompt.visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0);
+    pointer-events: auto;
+  }
+  body.in-app .exit-prompt { display: none; }
+
+  .ep-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: none;
+    background: var(--gray-25);
+    color: var(--gray-400);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .ep-close:hover {
+    background: var(--gray-50);
+    color: var(--gray-700);
+  }
+  .ep-body {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .ep-badge {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #8729FA 0%, #4B0EA3 100%);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    box-shadow: 0 4px 10px rgba(135, 41, 250, 0.3);
+  }
+  .ep-text { flex: 1; min-width: 0; }
+  .ep-text h5 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--brand-800);
+    margin-bottom: 6px;
+  }
+  .ep-text p {
+    font-family: 'Figtree', sans-serif;
+    font-size: 13px;
+    color: var(--gray-500);
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .ep-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .ep-btn-primary,
+  .ep-btn-ghost {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .ep-btn-primary {
+    background: var(--brand-800);
+    color: var(--white);
+  }
+  .ep-btn-primary:hover {
+    background: var(--brand-700);
+  }
+  .ep-btn-ghost {
+    background: transparent;
+    color: var(--brand-800);
+    border: 1px solid var(--gray-100);
+  }
+  .ep-btn-ghost:hover {
+    border-color: var(--brand-700);
+    color: var(--brand-700);
+  }
+
+  @media (max-width: 600px) {
+    .exit-prompt {
+      right: 12px;
+      left: 12px;
+      bottom: 12px;
+      max-width: none;
+    }
+  }
+
+  /* ============================================================
      STAGE SYSTEM: landing vs application steps
      ============================================================ */
   .stage { display: none; }
@@ -2913,7 +3116,74 @@
 <div class="stage stage-landing active" data-stage="0">
 
 <!-- ============ HERO WITH EMBEDDED CONFIGURATOR ============ -->
-<section class="shell">
+<section class="shell hero-shell">
+
+  <!-- Animated network graph background. Abstract visualization of
+       the matching product: central node connects to lender nodes
+       via pulsing paths. Low opacity, sits behind content, respects
+       prefers-reduced-motion. -->
+  <div class="network-bg" aria-hidden="true">
+    <svg viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="node-glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#8729FA" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#8729FA" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#8729FA" stop-opacity="0"/>
+          <stop offset="50%" stop-color="#8729FA" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#8729FA" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Connection paths from center to each lender node -->
+      <g class="network-paths" stroke="#8729FA" stroke-width="1" fill="none" opacity="0.25">
+        <path d="M 600 300 Q 400 200, 180 140" class="np np-1"/>
+        <path d="M 600 300 Q 800 180, 1020 120" class="np np-2"/>
+        <path d="M 600 300 Q 350 380, 140 460" class="np np-3"/>
+        <path d="M 600 300 Q 850 400, 1060 480" class="np np-4"/>
+        <path d="M 600 300 Q 500 150, 400 80" class="np np-5"/>
+        <path d="M 600 300 Q 700 450, 800 540" class="np np-6"/>
+      </g>
+
+      <!-- Traveling data pulses along each path -->
+      <g class="network-pulses" fill="#8729FA">
+        <circle r="3" class="pulse pulse-1"><animateMotion dur="4s" repeatCount="indefinite" path="M 0 0 Q -200 -100, -420 -160"/></circle>
+        <circle r="3" class="pulse pulse-2"><animateMotion dur="5s" repeatCount="indefinite" path="M 0 0 Q 200 -120, 420 -180"/></circle>
+        <circle r="3" class="pulse pulse-3"><animateMotion dur="6s" repeatCount="indefinite" path="M 0 0 Q -250 80, -460 160"/></circle>
+        <circle r="3" class="pulse pulse-4"><animateMotion dur="4.5s" repeatCount="indefinite" path="M 0 0 Q 250 100, 460 180"/></circle>
+      </g>
+
+      <!-- Lender nodes (outer ring) -->
+      <g class="network-nodes">
+        <circle cx="180" cy="140" r="20" fill="url(#node-glow)"/>
+        <circle cx="180" cy="140" r="5" fill="#8729FA" class="lender-node ln-1"/>
+
+        <circle cx="1020" cy="120" r="20" fill="url(#node-glow)"/>
+        <circle cx="1020" cy="120" r="5" fill="#8729FA" class="lender-node ln-2"/>
+
+        <circle cx="140" cy="460" r="20" fill="url(#node-glow)"/>
+        <circle cx="140" cy="460" r="5" fill="#8729FA" class="lender-node ln-3"/>
+
+        <circle cx="1060" cy="480" r="20" fill="url(#node-glow)"/>
+        <circle cx="1060" cy="480" r="5" fill="#8729FA" class="lender-node ln-4"/>
+
+        <circle cx="400" cy="80" r="18" fill="url(#node-glow)"/>
+        <circle cx="400" cy="80" r="4" fill="#8729FA" class="lender-node ln-5"/>
+
+        <circle cx="800" cy="540" r="18" fill="url(#node-glow)"/>
+        <circle cx="800" cy="540" r="4" fill="#8729FA" class="lender-node ln-6"/>
+      </g>
+
+      <!-- Central hub (the buyer) -->
+      <g class="network-hub">
+        <circle cx="600" cy="300" r="60" fill="url(#node-glow)"/>
+        <circle cx="600" cy="300" r="8" fill="#4B0EA3"/>
+        <circle cx="600" cy="300" r="14" fill="none" stroke="#8729FA" stroke-width="1" opacity="0.5" class="hub-ring"/>
+      </g>
+    </svg>
+  </div>
+
   <div class="hero-wrap">
     <div class="hero-copy">
       <div class="eyebrow">
@@ -2921,9 +3191,9 @@
         EasyFund by YachtWay
       </div>
 
-      <h1 class="h1">Yacht loan calculator and lender matching, in one place.</h1>
+      <h1 class="h1">Your best yacht loan rate, in 60 seconds.</h1>
 
-      <p class="lede">Move the sliders. See your monthly payment. Get matched with lenders from our network including Wells Fargo, Fifth Third, and Shore Premier. No dealer markup, no hard credit check. <strong>The entire application takes around three minutes from start to finish.</strong></p>
+      <p class="lede">One soft credit check. One application. Rate offers from our full lender network, <strong>without the dealer markup</strong>.</p>
 
       <div class="hero-micro-trust">
         <span class="item">
@@ -3084,7 +3354,7 @@
             </div>
             <div class="result-compare">
               Estimate based on network rates.
-              <span class="save" id="savings">$357 lower than industry typical</span>
+              <span class="save" id="savings">Save 7% · $357/mo</span>
             </div>
           </div>
           <div class="result-rate-disclosure">
@@ -3103,7 +3373,7 @@
 
         <div class="config-note">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
-          Soft credit check only. Zero impact to your score.
+          Safe to try because the soft credit check has zero impact on your score.
         </div>
 
         <!-- TILA-style rate disclosure for compliance. Required under
@@ -3534,11 +3804,11 @@
 <!-- ============ FINAL CTA ============ -->
 <section class="shell block">
   <div class="final-cta reveal-on-scroll">
-    <h2 class="h2">See your rate offers today.</h2>
-    <p>Soft credit check only. Around 60 seconds. No salesperson will cold call you.</p>
+    <h2 class="h2">Get pre-approved in 60 seconds.</h2>
+    <p>Soft credit check only, zero impact to your score. Because your time is worth more than a call center holding line.</p>
     <div class="final-cta-buttons">
       <a href="#" onclick="goToStage(1); return false;" class="btn btn-primary btn-lg">
-        Start your application
+        Check my rate
         <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a href="#" onclick="openChat(); return false;" class="btn btn-ghost btn-lg">Chat with a specialist</a>
@@ -3580,7 +3850,7 @@
     </div>
 
     <h2 class="h2 step-headline">A few details about you.</h2>
-    <p class="step-sub">So we can run your match and send the results to you. No salesperson will cold call you.</p>
+    <p class="step-sub">You are two steps from your rate range. Soft credit check only, no hard pull, no impact on your score.</p>
 
     <div class="step-form">
       <div class="field-row two">
@@ -3670,7 +3940,7 @@
     </div>
 
     <h2 class="h2 step-headline">Your financial picture.</h2>
-    <p class="step-sub">Ranges only. Matching lenders verify exact numbers later in underwriting.</p>
+    <p class="step-sub">Almost there. Ranges only, so you can stay private, because lenders verify exact numbers later in underwriting.</p>
 
     <div class="step-form">
       <div class="field">
@@ -3906,6 +4176,30 @@
     <div class="at-content">
       <div class="at-line">Someone in <strong id="at-state">Fort Lauderdale, FL</strong> just checked their rate</div>
       <div class="at-sub" id="at-time">Just now</div>
+    </div>
+  </div>
+</div>
+
+<!-- Exit-intent soft prompt. Not a popup. Not a modal. A gentle
+     corner slide-in that appears when the user shows signs of
+     disengagement (mouse leaves viewport upward, or idle for
+     90+ seconds on the landing page). Dismissible. Reinforces the
+     Match Promise rather than manufacturing urgency. -->
+<div class="exit-prompt" id="exit-prompt" aria-live="polite">
+  <button class="ep-close" onclick="dismissExitPrompt()" aria-label="Dismiss">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="ep-body">
+    <div class="ep-badge">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+    </div>
+    <div class="ep-text">
+      <h5>Before you go.</h5>
+      <p>Remember, if our network cannot beat or match your rate elsewhere, we waive your application and processing fees.</p>
+      <div class="ep-actions">
+        <button class="ep-btn-primary" onclick="goToStage(1); dismissExitPrompt();">Check my rate</button>
+        <button class="ep-btn-ghost" onclick="openChat(); dismissExitPrompt();">Ask a question</button>
+      </div>
     </div>
   </div>
 </div>
@@ -4200,7 +4494,8 @@
       const diff = industryPayment - ourPayment;
 
       document.getElementById('result-main-value').textContent = formatMoney(ourPayment);
-      document.getElementById('savings').textContent = formatMoney(diff) + ' lower than industry typical';
+      const pctSaved = Math.round((diff / industryPayment) * 100);
+      document.getElementById('savings').textContent = 'Save ' + pctSaved + '% · ' + formatMoney(diff) + '/mo';
     } else {
       // Payment mode: calculate purchase power
       const sliderVal = parseInt(document.getElementById('payment-target').value);
@@ -4219,7 +4514,8 @@
       const diff = purchasePower - industryPower;
 
       document.getElementById('result-main-value').textContent = formatMoney(purchasePower);
-      document.getElementById('savings').textContent = formatMoney(diff) + ' more boat than industry typical';
+      const pctMore = Math.round((diff / industryPower) * 100);
+      document.getElementById('savings').textContent = pctMore + '% more boat · ' + formatMoney(diff);
     }
   }
 
@@ -4372,6 +4668,47 @@
   // First toast fires at 6 seconds, giving the visitor a moment
   // to orient to the page before the notification appears.
   setTimeout(showToast, 6000);
+
+  // ============================================================
+  // EXIT-INTENT SOFT PROMPT
+  //
+  // Fires on real disengagement signals:
+  //   1. Mouse leaves top of viewport (heading for tabs/close button)
+  //   2. User has been idle on the landing page for 90+ seconds
+  //
+  // One per session. Dismissible. Never shows if the user is
+  // inside the application flow.
+  // ============================================================
+  let exitPromptShown = false;
+  let idleTimer;
+
+  function showExitPrompt() {
+    if (exitPromptShown) return;
+    if (document.body.classList.contains('in-app')) return;
+    exitPromptShown = true;
+    document.getElementById('exit-prompt').classList.add('visible');
+  }
+
+  function dismissExitPrompt() {
+    document.getElementById('exit-prompt').classList.remove('visible');
+  }
+
+  // Trigger 1: mouse leaves top of viewport
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY <= 0) {
+      showExitPrompt();
+    }
+  });
+
+  // Trigger 2: idle for 90 seconds on the landing page
+  function resetIdleTimer() {
+    clearTimeout(idleTimer);
+    idleTimer = setTimeout(showExitPrompt, 90000);
+  }
+  ['mousemove', 'keydown', 'scroll', 'touchstart'].forEach(evt => {
+    document.addEventListener(evt, resetIdleTimer, { passive: true });
+  });
+  resetIdleTimer();
 
   // Scroll reveals
   const io = new IntersectionObserver((entries) => {
