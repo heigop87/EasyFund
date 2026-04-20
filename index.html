@@ -362,11 +362,11 @@
 
   /* ============ HERO ============ */
   .hero-wrap {
-    padding: 20px 0 24px;
+    padding: 32px 0 24px;
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: 64px;
-    align-items: center;
+    align-items: start;
   }
   .hero-copy .eyebrow {
     display: inline-flex;
@@ -689,6 +689,58 @@
     margin-top: 2px;
   }
 
+  /* Inline example APR disclosure directly under the payment number.
+     Appears within the result panel so the buyer always sees the
+     rate assumption alongside the payment estimate. */
+  .result-rate-disclosure {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(135, 41, 250, 0.12);
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-500);
+    flex-wrap: wrap;
+  }
+  .rrd-label {
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 11px;
+    color: var(--gray-400);
+  }
+  .rrd-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--brand-800);
+    letter-spacing: -0.015em;
+  }
+  .rrd-context {
+    color: var(--gray-400);
+    font-size: 11px;
+  }
+
+  /* Compliance-grade rate disclosure footnote below the calculator.
+     Required under Regulation Z when advertising a specific APR
+     or payment example. Small type, legal-friendly phrasing. */
+  .rate-disclosure-footnote {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: var(--gray-25);
+    border-radius: var(--radius-sm);
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    line-height: 1.55;
+    color: var(--gray-500);
+  }
+  .rate-disclosure-footnote strong {
+    color: var(--gray-700);
+    font-weight: 600;
+  }
+
   .config-cta-row {
     margin-top: 22px;
     display: flex;
@@ -830,30 +882,49 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 72px;
+    height: 80px;
     padding: 14px 18px;
     border-radius: var(--radius-sm);
     background: var(--white);
     border: 1px solid var(--gray-50);
     transition: all 0.25s ease;
+    overflow: hidden;
   }
   .lender-logo:hover {
     border-color: var(--gray-100);
   }
 
-  /* Real SVG logos: grayscale at rest, full color on hover */
-  .lender-svg {
-    width: 100%;
-    max-height: 40px;
+  /* Real logo images - default treatment for logos with white or transparent bg */
+  .lender-img {
+    max-width: 100%;
+    max-height: 48px;
+    width: auto;
     height: auto;
-    fill: var(--gray-400);
-    transition: fill 0.25s ease;
+    object-fit: contain;
+    filter: grayscale(100%) contrast(0.9);
+    opacity: 0.7;
+    transition: filter 0.25s ease, opacity 0.25s ease;
+    mix-blend-mode: multiply;
   }
-  .lender-logo:hover .lender-svg {
-    fill: #2366B1; /* Octane brand blue */
+  .lender-logo:hover .lender-img {
+    filter: grayscale(0%) contrast(1);
+    opacity: 1;
   }
 
-  /* Text-based placeholders until real logos are provided */
+  /* Dark-background variant: for Wells Fargo (red square) and Centennial
+     (dark canvas) where blend modes misbehave. These get scaled up
+     to fill the card edge to edge. */
+  .lender-img-dark {
+    mix-blend-mode: normal;
+    max-height: 76px;
+    max-width: 120%;
+    opacity: 0.85;
+  }
+  .lender-logo:hover .lender-img-dark {
+    opacity: 1;
+  }
+
+  /* Fallback text placeholders (kept in CSS for future use) */
   .lender-placeholder {
     flex-direction: column;
     gap: 2px;
@@ -1955,7 +2026,7 @@
     bottom: 24px;
     left: 24px;
     z-index: 200;
-    max-width: 360px;
+    max-width: 400px;
     opacity: 0;
     transform: translateY(20px) translateX(-8px);
     transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
@@ -2004,8 +2075,11 @@
     font-size: 13px;
     font-weight: 500;
     color: var(--gray-700);
-    line-height: 1.35;
+    line-height: 1.4;
     white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .at-line strong {
     font-weight: 600;
@@ -2838,16 +2912,18 @@
           </div>
         </div>
 
-        <!-- Monthly payment slider (shown in Payment mode) -->
+        <!-- Monthly payment slider (shown in Payment mode). Log-scale mapped
+             same as the price slider so lower payment ranges (where most
+             buyers live) get proportional real-estate. -->
         <div class="slider-row" id="payment-row" style="display:none;">
           <div class="slider-head">
             <span class="slider-label">Desired Monthly Payment</span>
             <span class="slider-val" id="payment-target-display">$5,000</span>
           </div>
-          <input type="range" id="payment-target" min="500" max="250000" step="100" value="5000" oninput="updateCalc()">
+          <input type="range" id="payment-target" min="0" max="1000" step="1" value="371" oninput="updateCalc()">
           <div class="tick-row">
             <span>$500</span>
-            <span>$5K</span>
+            <span>$2.5K</span>
             <span>$25K</span>
             <span>$250K</span>
           </div>
@@ -2908,6 +2984,11 @@
               <span class="save" id="savings">$357 lower than industry typical</span>
             </div>
           </div>
+          <div class="result-rate-disclosure">
+            <span class="rrd-label">Example APR</span>
+            <span class="rrd-value"><span id="display-apr">5.99</span>%</span>
+            <span class="rrd-context">based on excellent credit profile</span>
+          </div>
         </div>
 
         <div class="config-cta-row">
@@ -2920,6 +3001,13 @@
         <div class="config-note">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
           Soft credit check only. Zero impact to your score.
+        </div>
+
+        <!-- TILA-style rate disclosure for compliance. Required under
+             Regulation Z whenever an advertisement shows a specific
+             rate or payment number. -->
+        <div class="rate-disclosure-footnote">
+          <strong>Rate disclosure.</strong> Rates and payments shown are representative examples based on a borrower with excellent credit (FICO 760+), a 20 percent down payment, and current market conditions as of today. Starting APR of 5.99 percent is available to borrowers meeting top-tier credit and eligibility requirements. The industry typical rate of 7.20 percent reflects the average yacht loan APR reported for 2025 by major marine lender surveys. Actual rate and monthly payment depend on your credit profile, loan amount, term, vessel age, down payment, and underwriting by the matching lender. EasyFund is a lender matching platform and does not itself lend money. All loans are originated by partner lenders in the EasyFund network. Estimate does not include taxes, insurance, registration, or fees.
         </div>
       </div>
     </div>
@@ -3659,7 +3747,7 @@
           </button>
         </div>
 
-        <p class="reveal-disclaimer">YachtWay is a technology platform that connects buyers with matching lenders. YachtWay is not a lender and does not offer financial advice. All loan terms are set by the matching lender based on their own underwriting criteria.</p>
+        <p class="reveal-disclaimer"><strong>Rate disclosure.</strong> The APR range shown is an estimate based on your self-reported credit profile, loan amount, term, and vessel type. Actual APR is determined by the matching lender after full underwriting, including a hard credit inquiry, income verification, and marine survey where required. Rates are subject to change based on market conditions. Monthly payment estimate does not include taxes, insurance, registration, or fees. YachtWay is a technology platform that connects buyers with matching lenders. YachtWay is not a lender and does not offer financial advice. All loan terms are set by the matching lender based on their own underwriting criteria.</p>
       </div>
     </div>
 
@@ -3774,7 +3862,7 @@
   <div class="at-inner">
     <div class="at-pulse"><span></span></div>
     <div class="at-content">
-      <div class="at-line">Someone in <strong id="at-state">California</strong> just checked their rate</div>
+      <div class="at-line">Someone in <strong id="at-state">Fort Lauderdale, FL</strong> just checked their rate</div>
       <div class="at-sub" id="at-time">Just now</div>
     </div>
   </div>
@@ -4045,6 +4133,32 @@
     return Math.round(price / 500000) * 500000;
   }
 
+  // ============================================================
+  // PAYMENT SLIDER: log-scale mapping
+  //
+  // Same issue as price slider. Linear $500 to $250K means anything
+  // under $10K/mo crams into the first 4% of the track. Most buyers
+  // are in the $2K to $10K range, so they need room to breathe.
+  // ============================================================
+  const PAYMENT_MIN = 500;
+  const PAYMENT_MAX = 250000;
+  const PAYMENT_LOG_MIN = Math.log(PAYMENT_MIN);
+  const PAYMENT_LOG_MAX = Math.log(PAYMENT_MAX);
+
+  function sliderToPayment(sliderVal) {
+    const t = sliderVal / 1000;
+    const payment = Math.exp(PAYMENT_LOG_MIN + t * (PAYMENT_LOG_MAX - PAYMENT_LOG_MIN));
+    return snapPayment(payment);
+  }
+
+  // Snap payments to sensible increments based on magnitude.
+  function snapPayment(p) {
+    if (p < 2000) return Math.round(p / 50) * 50;
+    if (p < 10000) return Math.round(p / 100) * 100;
+    if (p < 50000) return Math.round(p / 500) * 500;
+    return Math.round(p / 1000) * 1000;
+  }
+
   function updateCalc() {
     if (mode === 'price') {
       const sliderVal = parseInt(document.getElementById('price').value);
@@ -4063,7 +4177,8 @@
       document.getElementById('savings').textContent = formatMoney(diff) + ' lower than industry typical';
     } else {
       // Payment mode: calculate purchase power
-      const targetPayment = parseInt(document.getElementById('payment-target').value);
+      const sliderVal = parseInt(document.getElementById('payment-target').value);
+      const targetPayment = sliderToPayment(sliderVal);
       const loanAmount = calcPrincipalFromPayment(targetPayment, networkStartingRate, loanTerm);
       // Total purchase power = loan / (1 - downPct/100)
       const purchasePower = loanAmount / (1 - downPct / 100);
@@ -4130,38 +4245,46 @@
   // ============================================================
   // LIVE ACTIVITY TOAST ENGINE
   //
-  // Rotates through boating-popular US states on a randomized
+  // Rotates through boating-popular US cities on a randomized
   // interval. First toast fires at 6 seconds, then 12 to 22 seconds
   // between each subsequent appearance. Each time a toast fires,
   // the hero activity counter ticks up by one, creating a visible
   // link between the notification and the stat.
   //
-  // PRODUCTION: replace the STATES array and the pickState function
-  // with a feed of real state-level rate-check events from the
-  // backend. Delay each event by 60 to 120 seconds for privacy.
+  // PRODUCTION: replace the LOCATIONS array and the pickLocation
+  // function with a feed of real city-level rate-check events from
+  // the backend. Delay each event by 60 to 120 seconds for privacy.
   // ============================================================
 
-  const STATES = [
-    // Weighted toward real boating market share. Florida dominates,
-    // Texas/California/NY/NC follow, others appear less frequently.
-    { name: 'Florida', weight: 30 },
-    { name: 'California', weight: 14 },
-    { name: 'Texas', weight: 12 },
-    { name: 'New York', weight: 8 },
-    { name: 'North Carolina', weight: 7 },
-    { name: 'Michigan', weight: 5 },
-    { name: 'Washington', weight: 5 },
-    { name: 'Georgia', weight: 4 },
-    { name: 'South Carolina', weight: 4 },
-    { name: 'Maryland', weight: 4 },
-    { name: 'Virginia', weight: 3 },
-    { name: 'Rhode Island', weight: 2 },
-    { name: 'Massachusetts', weight: 2 },
+  const LOCATIONS = [
+    // Weighted toward real yacht and boating market share.
+    // South Florida dominates, with NE corridor and West Coast
+    // representation rounding out the list of 20 top boating markets.
+    { name: 'Fort Lauderdale, FL', weight: 14 },
+    { name: 'Miami, FL', weight: 12 },
+    { name: 'Palm Beach, FL', weight: 10 },
+    { name: 'Newport Beach, CA', weight: 8 },
+    { name: 'Naples, FL', weight: 8 },
+    { name: 'San Diego, CA', weight: 7 },
+    { name: 'Newport, RI', weight: 6 },
+    { name: 'Aventura, FL', weight: 6 },
+    { name: 'Sag Harbor, NY', weight: 5 },
+    { name: 'Tampa, FL', weight: 5 },
+    { name: 'New York, NY', weight: 5 },
+    { name: 'Annapolis, MD', weight: 4 },
+    { name: 'Charleston, SC', weight: 4 },
+    { name: 'Sarasota, FL', weight: 4 },
+    { name: 'Marina del Rey, CA', weight: 3 },
+    { name: 'Seattle, WA', weight: 3 },
+    { name: 'Key West, FL', weight: 3 },
+    { name: 'Boston, MA', weight: 3 },
+    { name: 'Savannah, GA', weight: 2 },
+    { name: 'Jupiter, FL', weight: 2 },
   ];
 
-  function pickState(lastName) {
+  function pickLocation(lastName) {
     // Weighted random selection, avoiding immediate repeats
-    const pool = STATES.filter(s => s.name !== lastName);
+    const pool = LOCATIONS.filter(s => s.name !== lastName);
     const totalWeight = pool.reduce((sum, s) => sum + s.weight, 0);
     let r = Math.random() * totalWeight;
     for (const s of pool) {
@@ -4172,10 +4295,10 @@
   }
 
   const toast = document.getElementById('activity-toast');
-  const toastState = document.getElementById('at-state');
+  const toastLocation = document.getElementById('at-state');
   const toastTime = document.getElementById('at-time');
   const counterEl = document.getElementById('activity-count');
-  let lastState = null;
+  let lastLocation = null;
   let toastTimeout;
 
   function bumpCounter() {
@@ -4195,9 +4318,9 @@
       return;
     }
 
-    const state = pickState(lastState);
-    lastState = state;
-    toastState.textContent = state;
+    const location = pickLocation(lastLocation);
+    lastLocation = location;
+    toastLocation.textContent = location;
     toastTime.textContent = 'Just now';
 
     toast.classList.add('visible');
