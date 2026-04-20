@@ -1768,14 +1768,14 @@
     .at-line { white-space: normal; font-size: 12px; }
   }
 
-  /* Small up-tick animation for the counter when it increments */
+  /* Up-tick animation for the counter when it increments */
   .ai-num.tick {
-    animation: numberTick 0.6s var(--ease);
+    animation: numberTick 0.8s var(--ease);
   }
   @keyframes numberTick {
-    0% { transform: translateY(0); opacity: 1; }
-    40% { transform: translateY(-4px); opacity: 0.7; color: var(--success-900); }
-    100% { transform: translateY(0); opacity: 1; }
+    0% { transform: translateY(0) scale(1); color: var(--brand-800); }
+    30% { transform: translateY(-6px) scale(1.08); color: var(--success-900); }
+    100% { transform: translateY(0) scale(1); color: var(--brand-800); }
   }
 
   /* ============================================================
@@ -3611,16 +3611,17 @@
   }
   initActivityCounter();
 
-  // Every 8 to 14 seconds, decrement by 1 (an old check drops out
-  // of the rolling window). This offsets the toast increments so
-  // the number hovers rather than climbs forever.
+  // Every 15 to 30 seconds, check the counter. Only decrement if
+  // it has climbed above the target band. This keeps the counter
+  // bounded but makes every toast bump visible, so the user sees
+  // cause and effect when a notification arrives.
   function scheduleDecrement() {
-    const delay = 8000 + Math.floor(Math.random() * 6000);
+    const delay = 15000 + Math.floor(Math.random() * 15000);
     setTimeout(() => {
       const el = document.getElementById('activity-count');
       const current = parseInt(el.textContent);
-      // Keep it within a sensible floor
-      if (current > 170) {
+      // Only ease back if we have drifted above the band ceiling
+      if (current > 225) {
         el.textContent = (current - 1).toString();
       }
       scheduleDecrement();
