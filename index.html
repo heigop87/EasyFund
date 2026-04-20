@@ -33,7 +33,8 @@
   "mainEntity": [
     { "@type": "Question", "name": "How does a yacht loan work?", "acceptedAnswer": { "@type": "Answer", "text": "A yacht loan is a secured installment loan. The vessel serves as collateral. Terms typically range from 10 to 20 years. Down payments are usually 10 to 30 percent of the purchase price." } },
     { "@type": "Question", "name": "What credit score is needed for a yacht loan?", "acceptedAnswer": { "@type": "Answer", "text": "Lenders in the EasyFund network require a minimum credit score of 680. Scores above 720 receive the best available rates. Applications with scores under 680 will likely not qualify." } },
-    { "@type": "Question", "name": "Will checking my rate affect my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "No. EasyFund uses a soft credit pull. A soft pull does not affect your credit score and is not reported to creditors." } }
+    { "@type": "Question", "name": "Will checking my rate affect my credit score?", "acceptedAnswer": { "@type": "Answer", "text": "No. EasyFund uses a soft credit pull. A soft pull does not affect your credit score and is not reported to creditors." } },
+    { "@type": "Question", "name": "Can you finance a foreign-built or foreign-flagged yacht?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. EasyFund can accommodate financing for foreign-built vessels and foreign nationals in select cases, depending on vessel location, intended use, and specific lender criteria." } }
   ]
 }
 </script>
@@ -829,39 +830,53 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 60px;
-    padding: 0 16px;
+    height: 72px;
+    padding: 14px 18px;
     border-radius: var(--radius-sm);
     background: var(--white);
     border: 1px solid var(--gray-50);
+    transition: all 0.25s ease;
+  }
+  .lender-logo:hover {
+    border-color: var(--gray-100);
+  }
+
+  /* Real SVG logos: grayscale at rest, full color on hover */
+  .lender-svg {
+    width: 100%;
+    max-height: 40px;
+    height: auto;
+    fill: var(--gray-400);
+    transition: fill 0.25s ease;
+  }
+  .lender-logo:hover .lender-svg {
+    fill: #2366B1; /* Octane brand blue */
+  }
+
+  /* Text-based placeholders until real logos are provided */
+  .lender-placeholder {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .lp-text {
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 13px;
-    color: var(--gray-500);
+    color: var(--gray-400);
     letter-spacing: -0.01em;
     text-align: center;
-    transition: all 0.2s ease;
-    filter: grayscale(1);
-    opacity: 0.75;
+    transition: color 0.25s ease;
   }
-  .lender-logo:hover {
-    filter: grayscale(0);
-    opacity: 1;
-    border-color: var(--gray-100);
-  }
-  .lender-logo.wells { color: #D71E28; }
-  .lender-logo.fifth { color: #00873E; }
-  .lender-logo.shore { color: #003366; }
-  .lender-logo.centennial { color: #1F3864; }
-  .lender-logo.octane { color: #FF6B00; }
-  .lender-logo.akf { color: #000000; font-size: 12px; line-height: 1.2; }
-  .lender-logo.akf .sub {
-    display: block;
+  .lp-sub {
+    font-family: 'Figtree', sans-serif;
     font-size: 9px;
-    letter-spacing: 0.12em;
-    color: var(--gray-400);
     font-weight: 500;
-    margin-top: 2px;
+    letter-spacing: 0.12em;
+    color: var(--gray-300);
+    text-transform: uppercase;
+  }
+  .lender-logo:hover .lp-text {
+    color: var(--brand-800);
   }
 
   /* Compliance strip below lenders */
@@ -1210,6 +1225,211 @@
   .compare-row .check { color: var(--success); }
   .compare-row .x { color: rgba(255, 255, 255, 0.3); }
 
+  /* ============ PFS SECTION ============ */
+  .pfs-card {
+    background: var(--white);
+    border: 1px solid var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: 56px;
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+  .pfs-card::before {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(135, 41, 250, 0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .pfs-inner {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    position: relative;
+  }
+  .pfs-eyebrow {
+    display: inline-block;
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--brand-700);
+    background: rgba(135, 41, 250, 0.08);
+    padding: 6px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+  .pfs-title {
+    margin-bottom: 20px;
+  }
+  .pfs-text {
+    font-size: 16px;
+    color: var(--gray-500);
+    line-height: 1.6;
+    max-width: 54ch;
+  }
+  .pfs-benefits {
+    margin: 28px 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .pfs-benefit {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-700);
+  }
+  .pfs-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--success-50);
+    color: var(--success-900);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .pfs-ctas {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .pfs-secondary {
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand-700);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+  .pfs-secondary:hover {
+    border-bottom-color: var(--brand-700);
+  }
+  .pfs-secondary::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%234B0EA3' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+
+  /* Decorative PFS document mock */
+  .pfs-doc {
+    background: var(--white);
+    border: 1px solid var(--gray-100);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 20px 40px -12px rgba(38, 7, 84, 0.12), 0 2px 4px rgba(38, 7, 84, 0.04);
+    transform: rotate(-1deg);
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .pfs-doc-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--gray-50);
+    margin-bottom: 16px;
+  }
+  .pfs-doc-logo {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    background: var(--brand-800);
+    color: var(--white);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .pfs-doc-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-800);
+    letter-spacing: -0.005em;
+    line-height: 1.2;
+  }
+  .pfs-doc-sub {
+    font-family: 'Figtree', sans-serif;
+    font-size: 10px;
+    color: var(--gray-400);
+    margin-top: 1px;
+  }
+  .pfs-doc-section {
+    margin-bottom: 14px;
+  }
+  .pfs-doc-section-label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gray-400);
+    margin-bottom: 8px;
+  }
+  .pfs-doc-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    font-family: 'Figtree', sans-serif;
+    font-size: 11px;
+    color: var(--gray-500);
+    border-bottom: 1px dashed var(--gray-50);
+  }
+  .pfs-doc-row:last-child { border-bottom: none; }
+  .skel {
+    display: inline-block;
+    height: 6px;
+    background: linear-gradient(90deg, var(--gray-50) 0%, var(--gray-100) 50%, var(--gray-50) 100%);
+    background-size: 200% 100%;
+    border-radius: 3px;
+    animation: skelShimmer 2s infinite;
+  }
+  .skel-sm { width: 40px; }
+  .skel-md { width: 60px; }
+  .skel-lg { width: 80px; }
+  .skel-bold { width: 100px; height: 10px; background: var(--brand-700); opacity: 0.3; }
+  @keyframes skelShimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+  }
+  .pfs-doc-net {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    margin-top: 4px;
+    border-top: 2px solid var(--brand-800);
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand-800);
+  }
+
+  @media (max-width: 860px) {
+    .pfs-card { padding: 32px 24px; }
+    .pfs-inner { grid-template-columns: 1fr; gap: 32px; }
+    .pfs-right { order: -1; }
+    .pfs-doc { max-width: 320px; }
+  }
+
   /* ============ FAQ ============ */
   .faq-list {
     max-width: 900px;
@@ -1310,7 +1530,7 @@
     section.block { padding: 48px 0; }
     .hero-wrap { grid-template-columns: 1fr; gap: 32px; padding: 12px 0 8px; }
     .lender-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
-    .lender-logo { height: 56px; font-size: 12px; }
+    .lender-logo { height: 60px; padding: 10px 14px; }
     .reviews-head { flex-direction: column; align-items: flex-start; }
     .reviews-grid { grid-template-columns: 1fr; gap: 16px; }
     .proof-row { grid-template-columns: repeat(2, 1fr); gap: 32px 20px; padding: 32px 0; }
@@ -1521,6 +1741,50 @@
     font-weight: 500;
     color: var(--gray-300);
   }
+
+  /* Vessel age warning inline in calculator */
+  .vessel-age-warning {
+    display: none;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 12px 14px;
+    margin: 4px 0 20px;
+    background: rgba(253, 176, 34, 0.1);
+    border: 1px solid rgba(253, 176, 34, 0.3);
+    border-left: 3px solid var(--warning);
+    border-radius: var(--radius-sm);
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    color: var(--gray-700);
+    line-height: 1.5;
+    animation: warningIn 0.3s var(--ease);
+  }
+  .vessel-age-warning.visible { display: flex; }
+  .vessel-age-warning svg {
+    color: var(--warning);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .vessel-age-warning strong {
+    color: var(--brand-800);
+    font-weight: 600;
+  }
+
+  /* Primary CTA alternate state when user is in insurance-only flow */
+  .btn-primary.insurance-mode {
+    background: linear-gradient(254.25deg, #F59E0B 0%, #D97706 100%);
+  }
+  .btn-primary.insurance-mode:hover {
+    background: linear-gradient(254.25deg, #D97706 0%, #B45309 100%);
+  }
+
+  /* Step 2 mode visibility: show either loan or insurance variants */
+  .insurance-mode-only { display: none; }
+  body.insurance-only .loan-mode-only { display: none; }
+  body.insurance-only .insurance-mode-only { display: block; }
+  body.insurance-only .insurance-mode-only.btn { display: inline-flex; }
+  body.insurance-only .field.insurance-mode-only { display: block; }
+  body.insurance-only .step-trust-note.insurance-mode-only { display: flex; }
 
   /* ============================================================
      UPDATED: Comparison band prominence
@@ -2492,7 +2756,7 @@
 
       <h1 class="h1">Yacht loan calculator and lender matching, in one place.</h1>
 
-      <p class="lede">Move the sliders. See your monthly payment. Get matched with lenders from our network including Wells Fargo, Fifth Third, and Shore Premier. No dealer markup, no hard credit check.</p>
+      <p class="lede">Move the sliders. See your monthly payment. Get matched with lenders from our network including Wells Fargo, Fifth Third, and Shore Premier. No dealer markup, no hard credit check. <strong>The entire application takes around three minutes from start to finish.</strong></p>
 
       <div class="hero-micro-trust">
         <span class="item">
@@ -2605,6 +2869,26 @@
         </div>
 
         <div class="slider-row">
+          <div class="slider-head">
+            <span class="slider-label">Vessel Year</span>
+            <span class="slider-val" id="year-display">2020</span>
+          </div>
+          <input type="range" id="year" min="1985" max="2026" step="1" value="2020" oninput="updateYear()">
+          <div class="tick-row">
+            <span>1985</span>
+            <span>2000</span>
+            <span>2015</span>
+            <span>2026</span>
+          </div>
+        </div>
+
+        <!-- Vessel age warning: shows only when year < 1996 (30+ years old) -->
+        <div class="vessel-age-warning" id="vessel-age-warning">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          <span><strong>Vessels older than 30 years do not qualify for financing.</strong> You can still request an insurance quote for older vessels.</span>
+        </div>
+
+        <div class="slider-row">
           <div class="slider-label" style="margin-bottom: 10px; display: block;">Loan Term</div>
           <div class="term-row">
             <button type="button" class="term-pill" onclick="selectTerm(this, 10)">10 yr</button>
@@ -2627,8 +2911,8 @@
         </div>
 
         <div class="config-cta-row">
-          <button class="btn btn-primary full" onclick="goToStage(1)">
-            Continue with these numbers
+          <button class="btn btn-primary full" id="config-cta" onclick="handleConfigContinue()">
+            <span id="config-cta-text">Continue with these numbers</span>
             <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
         </div>
@@ -2649,14 +2933,24 @@
       <div class="label">EasyFund Matching Lender Network</div>
     </div>
     <div class="lender-grid">
-      <div class="lender-logo wells">WELLS FARGO</div>
-      <div class="lender-logo fifth">FIFTH THIRD</div>
-      <div class="lender-logo shore">SHORE PREMIER</div>
-      <div class="lender-logo centennial">CENTENNIAL BANK</div>
-      <div class="lender-logo octane">OCTANE</div>
-      <div class="lender-logo akf">
-        AKF BANK
-        <span class="sub">DEUTSCHLAND</span>
+      <div class="lender-logo lender-placeholder">
+        <span class="lp-text">WELLS FARGO</span>
+      </div>
+      <div class="lender-logo lender-placeholder">
+        <span class="lp-text">FIFTH THIRD</span>
+      </div>
+      <div class="lender-logo lender-placeholder">
+        <span class="lp-text">SHORE PREMIER</span>
+      </div>
+      <div class="lender-logo lender-placeholder">
+        <span class="lp-text">CENTENNIAL BANK</span>
+      </div>
+      <div class="lender-logo lender-placeholder">
+        <span class="lp-text">OCTANE</span>
+      </div>
+      <div class="lender-logo lender-placeholder">
+        <span class="lp-text">AKF BANK</span>
+        <span class="lp-sub">DEUTSCHLAND</span>
       </div>
     </div>
 
@@ -2927,6 +3221,79 @@
   </div>
 </section>
 
+<!-- ============ PERSONAL FINANCIAL STATEMENT ============ -->
+<section class="shell block">
+  <div class="pfs-card">
+    <div class="pfs-inner">
+      <div class="pfs-left">
+        <div class="pfs-eyebrow">Optional, but Recommended</div>
+        <h2 class="h2 pfs-title">Personal Financial Statement, ready in advance.</h2>
+        <p class="pfs-text">Lenders will request a Personal Financial Statement (PFS) as part of the full loan application. The PFS gives a complete picture of your assets, liabilities, and income. Filling one out ahead of time means a faster application, faster underwriting, and faster pre-approval.</p>
+        <div class="pfs-benefits">
+          <div class="pfs-benefit">
+            <div class="pfs-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            Accelerates underwriting by 2 to 4 days
+          </div>
+          <div class="pfs-benefit">
+            <div class="pfs-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            Filled once, accepted across lenders
+          </div>
+          <div class="pfs-benefit">
+            <div class="pfs-check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            Stored securely in your EasyFund account
+          </div>
+        </div>
+        <div class="pfs-ctas">
+          <a href="#" class="btn btn-primary">
+            Start your PFS
+            <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#" class="pfs-secondary">Download the template (PDF)</a>
+        </div>
+      </div>
+      <div class="pfs-right">
+        <!-- Decorative document mock -->
+        <div class="pfs-doc">
+          <div class="pfs-doc-header">
+            <div class="pfs-doc-logo">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5"/></svg>
+            </div>
+            <div class="pfs-doc-label">
+              <div class="pfs-doc-title">Personal Financial Statement</div>
+              <div class="pfs-doc-sub">EasyFund · Revision 2026.1</div>
+            </div>
+          </div>
+          <div class="pfs-doc-section">
+            <div class="pfs-doc-section-label">Section 1 · Assets</div>
+            <div class="pfs-doc-row"><span>Cash and equivalents</span><span class="skel skel-sm"></span></div>
+            <div class="pfs-doc-row"><span>Marketable securities</span><span class="skel skel-md"></span></div>
+            <div class="pfs-doc-row"><span>Real estate</span><span class="skel skel-lg"></span></div>
+          </div>
+          <div class="pfs-doc-section">
+            <div class="pfs-doc-section-label">Section 2 · Liabilities</div>
+            <div class="pfs-doc-row"><span>Mortgages</span><span class="skel skel-md"></span></div>
+            <div class="pfs-doc-row"><span>Other loans</span><span class="skel skel-sm"></span></div>
+          </div>
+          <div class="pfs-doc-section">
+            <div class="pfs-doc-section-label">Section 3 · Annual Income</div>
+            <div class="pfs-doc-row"><span>Salary and wages</span><span class="skel skel-md"></span></div>
+          </div>
+          <div class="pfs-doc-net">
+            <span>Net Worth</span>
+            <span class="skel skel-bold"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ FAQ ============ -->
 <section class="shell block">
   <div class="hiw-head reveal-on-scroll">
@@ -2954,6 +3321,10 @@
     <details class="faq-item">
       <summary>What documents are needed for a yacht loan?</summary>
       <div class="faq-body">Most lenders in the EasyFund network require two years of personal tax returns, recent asset statements, a completed loan application, and details of the vessel being purchased. A marine survey is typically required for boats over five years old. Documents are uploaded securely through the EasyFund portal.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Can you finance a foreign-built or foreign-flagged yacht?</summary>
+      <div class="faq-body">Yes. EasyFund can accommodate financing for foreign-built vessels and, in select cases, foreign nationals, depending on the vessel location, intended use, and specific lender criteria. Cross-border financing carries additional documentation requirements such as proof of US flagging intent, vessel importation records, and verification of the buyer's residency status. Start with the application and an EasyFund specialist will walk you through the specifics for your situation.</div>
     </details>
     <details class="faq-item">
       <summary>Which lenders are in the EasyFund network?</summary>
@@ -3010,8 +3381,13 @@
       </div>
     </div>
 
-    <h2 class="h2 step-headline">A few details about you.</h2>
-    <p class="step-sub">So we can run your match and send the results to you. No salesperson will cold call you.</p>
+    <!-- Default loan-flow headline (hidden when insurance-only is active) -->
+    <h2 class="h2 step-headline loan-mode-only">A few details about you.</h2>
+    <p class="step-sub loan-mode-only">So we can run your match and send the results to you. No salesperson will cold call you.</p>
+
+    <!-- Insurance-only headline (visible only when vessel is too old for financing) -->
+    <h2 class="h2 step-headline insurance-mode-only">Let us send you an insurance quote.</h2>
+    <p class="step-sub insurance-mode-only">Since your vessel does not qualify for financing, we can connect you with marine insurance partners instead. Enter your details and we will send quotes to your inbox.</p>
 
     <div class="step-form">
       <div class="field-row two">
@@ -3036,33 +3412,54 @@
         </div>
       </div>
 
-      <div class="field">
-        <label class="field-label">Home Address <span class="req">*</span></label>
-        <input class="input" type="text" placeholder="500 Las Olas Blvd" autocomplete="address-line1" required>
+      <!-- Address fields hidden in insurance-only mode -->
+      <div class="loan-mode-only">
+        <div class="field">
+          <label class="field-label">Home Address <span class="req">*</span></label>
+          <input class="input" type="text" placeholder="500 Las Olas Blvd" autocomplete="address-line1">
+        </div>
+
+        <div class="field-row three" style="margin-top: 18px;">
+          <div class="field">
+            <label class="field-label">City <span class="req">*</span></label>
+            <input class="input" type="text" placeholder="Fort Lauderdale" autocomplete="address-level2">
+          </div>
+          <div class="field">
+            <label class="field-label">State <span class="req">*</span></label>
+            <input class="input" type="text" placeholder="FL" autocomplete="address-level1" maxlength="2">
+          </div>
+          <div class="field">
+            <label class="field-label">Zip Code <span class="req">*</span></label>
+            <input class="input" type="text" placeholder="33301" autocomplete="postal-code" inputmode="numeric" maxlength="5">
+          </div>
+        </div>
       </div>
 
-      <div class="field-row three">
-        <div class="field">
-          <label class="field-label">City <span class="req">*</span></label>
-          <input class="input" type="text" placeholder="Fort Lauderdale" autocomplete="address-level2" required>
-        </div>
-        <div class="field">
-          <label class="field-label">State <span class="req">*</span></label>
-          <input class="input" type="text" placeholder="FL" autocomplete="address-level1" maxlength="2" required>
-        </div>
-        <div class="field">
-          <label class="field-label">Zip Code <span class="req">*</span></label>
-          <input class="input" type="text" placeholder="33301" autocomplete="postal-code" inputmode="numeric" maxlength="5" required>
-        </div>
+      <!-- Zip only for insurance mode -->
+      <div class="field insurance-mode-only">
+        <label class="field-label">Zip Code <span class="req">*</span></label>
+        <input class="input" type="text" placeholder="33301" autocomplete="postal-code" inputmode="numeric" maxlength="5">
       </div>
 
-      <div class="step-trust-note">
+      <div class="step-trust-note loan-mode-only">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
         Your address is used for the soft credit pull only. Not shared with any lender until you select one.
       </div>
 
-      <button class="btn btn-primary btn-lg step-continue" onclick="goToStage(2)">
+      <div class="step-trust-note insurance-mode-only">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        Your details are shared only with vetted marine insurance partners. Never sold to third parties.
+      </div>
+
+      <!-- Loan mode: continue to financial step 3 -->
+      <button class="btn btn-primary btn-lg step-continue loan-mode-only" onclick="goToStage(2)">
         Continue
+        <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+
+      <!-- Insurance mode: skip financial step, go straight to confirmation -->
+      <button class="btn btn-primary btn-lg step-continue insurance-mode-only" onclick="submitInsuranceRequest()">
+        Send me insurance quotes
         <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </button>
     </div>
@@ -3316,6 +3713,48 @@
         <p class="reveal-disclaimer">This is not a denial of credit under the Equal Credit Opportunity Act. EasyFund is a matching platform and has not performed a hard inquiry on your credit. No entry has been made on your credit report. You are welcome to seek financing through other channels.</p>
       </div>
     </div>
+
+    <!-- Insurance confirmation panel (shown after submitting insurance-only form) -->
+    <div class="reveal declined" id="reveal-insurance" style="display: none;">
+      <div class="reveal-inner">
+        <div class="reveal-kicker">
+          <span class="d"></span>
+          Request received
+        </div>
+
+        <h2 class="reveal-h2">We will send insurance quotes to your inbox.</h2>
+
+        <p class="reveal-sub" style="margin-top: 24px;">Thank you. One of our marine insurance partners will reach out within 24 hours with quotes tailored to your vessel. If you decide to purchase a different vessel that qualifies for financing, you are welcome to restart the application at any time.</p>
+
+        <div class="decline-next">
+          <div class="dn-title">While you wait</div>
+          <div class="dn-item">
+            <div class="dn-num">1</div>
+            <div class="dn-text">
+              <h5>Check your inbox</h5>
+              <p>Your quotes will arrive from a verified insurance partner. Check spam if you do not see them.</p>
+            </div>
+          </div>
+          <div class="dn-item">
+            <div class="dn-num">2</div>
+            <div class="dn-text">
+              <h5>Considering a newer vessel?</h5>
+              <p>Vessels under 30 years of age qualify for financing through our lender network. You can restart the application with a different vessel year at any time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal-cta">
+          <button class="btn btn-primary btn-lg reveal-primary" onclick="goToStage(0)">
+            Return to homepage
+            <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <button class="btn btn-lg reveal-ghost" onclick="openChat()">
+            Chat with a specialist
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 </div>
 
@@ -3362,6 +3801,9 @@
     // Hide activity toast once inside the application flow
     if (n === 0) {
       document.body.classList.remove('in-app');
+      document.body.classList.remove('insurance-only');
+      // Re-check vessel year in case they return to the configurator
+      if (typeof updateYear === 'function') updateYear();
     } else {
       document.body.classList.add('in-app');
     }
@@ -3447,12 +3889,31 @@
     goToStage(3);
   }
 
+  // Insurance quote request: logs the lead and shows a thank-you state.
+  // In production this submits the captured email/name/phone/zip to the
+  // CRM for insurance retargeting.
+  function submitInsuranceRequest() {
+    // PRODUCTION: fire off form submit to backend here
+    // Example: fetch('/api/insurance-lead', { method: 'POST', body: ... });
+    const approvedPanel = document.getElementById('reveal-approved');
+    const declinedPanel = document.getElementById('reveal-declined');
+    const insurancePanel = document.getElementById('reveal-insurance');
+    if (approvedPanel) approvedPanel.style.display = 'none';
+    if (declinedPanel) declinedPanel.style.display = 'none';
+    if (insurancePanel) insurancePanel.style.display = 'block';
+    goToStage(3);
+  }
+
   // Configurator state
   let loanTerm = 20;
   let downPct = 20;
   let mode = 'price'; // 'price' or 'payment'
+  let vesselYear = 2020;
+  let insuranceOnly = false; // flipped true when vessel is too old for financing
   const networkStartingRate = 0.0599;
   const industryTypicalRate = 0.072;
+  const CURRENT_YEAR = new Date().getFullYear();
+  const MAX_VESSEL_AGE = 30;
 
   function setType(el) {
     el.parentElement.querySelectorAll('.type-big, .type-pill').forEach(p => p.classList.remove('active'));
@@ -3464,6 +3925,43 @@
     el.classList.add('active');
     loanTerm = term;
     updateCalc();
+  }
+
+  // Vessel year handler: updates display and toggles the insurance-only
+  // mode if the vessel is too old for financing.
+  function updateYear() {
+    vesselYear = parseInt(document.getElementById('year').value);
+    document.getElementById('year-display').textContent = vesselYear.toString();
+
+    const age = CURRENT_YEAR - vesselYear;
+    const warning = document.getElementById('vessel-age-warning');
+    const ctaText = document.getElementById('config-cta-text');
+    const cta = document.getElementById('config-cta');
+
+    if (age > MAX_VESSEL_AGE) {
+      insuranceOnly = true;
+      warning.classList.add('visible');
+      ctaText.textContent = 'Get an insurance quote instead';
+      cta.classList.add('insurance-mode');
+    } else {
+      insuranceOnly = false;
+      warning.classList.remove('visible');
+      ctaText.textContent = 'Continue with these numbers';
+      cta.classList.remove('insurance-mode');
+    }
+  }
+
+  // Handle the primary configurator CTA. Routes to the normal application
+  // flow, or to the insurance-capture flow if the vessel is too old.
+  function handleConfigContinue() {
+    if (insuranceOnly) {
+      goToStage(1);
+      // Mark the application form for insurance-only capture
+      document.body.classList.add('insurance-only');
+    } else {
+      document.body.classList.remove('insurance-only');
+      goToStage(1);
+    }
   }
 
   function setDown(el, value) {
