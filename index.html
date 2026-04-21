@@ -6,12 +6,12 @@
 <meta name="theme-color" content="#260754">
 
 <title>Yacht Loan Calculator and Pre-Approval | EasyFund by YachtWay</title>
-<meta name="description" content="Calculate your yacht loan payment and get rate offers from matching lenders in the EasyFund network, including Wells Fargo, Fifth Third, Shore Premier, and more. Soft credit check only. No dealer markup.">
+<meta name="description" content="Calculate your yacht loan payment and get rate offers from matching lenders in the EasyFund network, including Wells Fargo, Fifth Third, Shore Premier, and more. Soft credit check only. Competitive rates, backed by our Match Promise.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://YachtWay.com/easyfund">
 
 <meta property="og:title" content="Yacht Loan Calculator and Pre-Approval | EasyFund by YachtWay">
-<meta property="og:description" content="Calculate your yacht loan payment and get matched with lenders. Soft credit check only. No dealer markup.">
+<meta property="og:description" content="Calculate your yacht loan payment and get matched with lenders. Soft credit check only. Competitive rates, backed by our Match Promise.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://YachtWay.com/easyfund">
 
@@ -966,21 +966,37 @@
 
   /* ============ LENDER STRIP ============ */
   .lender-strip {
-    padding: 40px 0 32px;
+    padding: 56px 0 40px;
     border-top: 1px solid var(--gray-50);
     border-bottom: 1px solid var(--gray-50);
   }
   .lender-strip-head {
     text-align: center;
-    margin-bottom: 28px;
+    margin-bottom: 36px;
   }
-  .lender-strip-head .label {
-    font-family: 'Figtree', sans-serif;
-    font-size: 12px;
+  .lender-strip-head .eyebrow {
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .lender-strip-head h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 28px;
     font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gray-400);
+    letter-spacing: -0.02em;
+    color: var(--brand-800);
+    line-height: 1.15;
+    margin-bottom: 10px;
+  }
+  .lender-strip-head .sub {
+    font-family: 'Figtree', sans-serif;
+    font-size: 15px;
+    color: var(--gray-500);
+    max-width: 52ch;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+  @media (max-width: 860px) {
+    .lender-strip-head h2 { font-size: 24px; }
   }
   .lender-grid {
     display: grid;
@@ -1764,14 +1780,48 @@
     .result-main { font-size: 32px; }
   }
 
+  /* Scroll reveal animations. Subtle fade-and-rise on section
+     entry. No rotation, no scale, no horizontal motion, because
+     those read as gimmicky on a finance page and can cause
+     vestibular discomfort for some users. */
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+    transform: translateY(20px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
   }
   .reveal-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* Stagger utility: items in a grid cascade with small delays
+     so the group appears to compose rather than arrive all at once. */
+  .reveal-stagger.visible { transition-delay: 0s; }
+  .reveal-stagger-1.visible { transition-delay: 0.08s; }
+  .reveal-stagger-2.visible { transition-delay: 0.16s; }
+  .reveal-stagger-3.visible { transition-delay: 0.24s; }
+  .reveal-stagger-4.visible { transition-delay: 0.32s; }
+  .reveal-stagger-5.visible { transition-delay: 0.40s; }
+
+  /* Number counter: pops up slightly when first visible. */
+  .count-up {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  }
+  .count-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Respect users with motion sensitivity. */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-on-scroll, .count-up {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
   }
 
   /* ============================================================
@@ -2180,6 +2230,56 @@
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
     margin: 0;
+  }
+
+  /* Two-part variant: vertical layout with both guarantees side-by-side.
+     The rate guarantee addresses price fear, the credit guarantee
+     addresses the top abandonment reason (fear of hard pull damage). */
+  .promise-card-dual {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .promise-card-dual .promise-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .promise-card-dual .promise-title {
+    margin-bottom: 0;
+  }
+  .promise-parts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding-top: 4px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+  }
+  .promise-part {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .promise-part-label {
+    font-family: 'Figtree', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brand-2, #D4B3FF);
+  }
+  .promise-part-text {
+    font-family: 'Figtree', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.55;
+    margin: 0;
+  }
+  @media (max-width: 700px) {
+    .promise-parts {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
   }
 
   /* Three-column field row for city/state/zip */
@@ -3227,7 +3327,7 @@
 
       <h1 class="h1">Your best yacht loan rate, in 60 seconds.</h1>
 
-      <p class="lede">One soft credit check. One application. Rate offers from our full lender network, <strong>without the dealer markup</strong>.</p>
+      <p class="lede">One soft credit check. One application. <strong>Competitive rates from our lender network</strong>, backed by our Match Promise.</p>
 
       <div class="hero-micro-trust">
         <span class="item">
@@ -3263,7 +3363,7 @@
              claim on the page for buyers who expect loan apps to take days. -->
         <div class="speed-feature">
           <div class="sf-numbers">
-            <span class="sf-num">60</span>
+            <span class="sf-num" data-count-to="60" data-count-duration="1400">60</span>
             <span class="sf-unit">seconds</span>
           </div>
           <div class="sf-text">
@@ -3439,9 +3539,11 @@
 <section class="shell">
   <div class="lender-strip">
     <div class="lender-strip-head">
-      <div class="label">EasyFund Matching Lender Network</div>
+      <span class="eyebrow">Our Network</span>
+      <h2>Matched with leading marine lenders.</h2>
+      <p class="sub">One application connects you with the full network. We route your profile to the lenders most likely to offer you competitive terms.</p>
     </div>
-    <div class="lender-grid">
+    <div class="lender-grid reveal-on-scroll">
       <div class="lender-logo lender-placeholder">
         <span class="lp-text">WELLS FARGO</span>
       </div>
@@ -3532,8 +3634,21 @@
     </div>
 
     <div class="reviews-grid">
-      <!-- PLACEHOLDER reviews. Replace with real buyer quotes before production. -->
-      <div class="review-card reveal-on-scroll">
+      <!-- ================================================================
+           PLACEHOLDER REVIEWS. Fabricated buyer names and quotes.
+           REQUIRED BEFORE PRODUCTION LAUNCH:
+           1. Replace all three quotes with real, attributable testimonials
+              collected from closed EasyFund deals.
+           2. Implement the Verified workflow: a buyer-review is only
+              marked Verified if it came from a user whose EasyFund
+              application resulted in a funded loan, and the quote
+              was collected through a known attested channel.
+           3. Review names, vessels, and locations must be real (or
+              anonymized with buyer permission) to avoid FTC Section 5
+              concerns around deceptive endorsements.
+           Current placeholder data is for layout and copy testing only.
+           ================================================================ -->
+      <div class="review-card reveal-on-scroll reveal-stagger">
         <div class="review-stars">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -3541,7 +3656,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="review-quote">The dealer quoted me 7.4 percent on a twenty-year loan. EasyFund matched me with Fifth Third at 6.1. That is eighty thousand dollars over the life of the loan. The pre-approval letter was in my inbox before the end of the day.</p>
+        <p class="review-quote">Used the calculator first, applied second. Took maybe two minutes. EasyFund matched me with Fifth Third at 6.1 percent on a twenty-year loan. The pre-approval letter was in my inbox before the end of the day.</p>
         <div class="review-meta">
           <div class="review-avatar">MR</div>
           <div class="info">
@@ -3555,7 +3670,7 @@
         </div>
       </div>
 
-      <div class="review-card reveal-on-scroll">
+      <div class="review-card reveal-on-scroll reveal-stagger-1">
         <div class="review-stars">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -3563,7 +3678,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="review-quote">I walked onto the dock with a pre-approval letter from Wells Fargo. The broker stopped negotiating the financing and started negotiating the boat. That is what I needed. Three days from application to funding.</p>
+        <p class="review-quote">Went to the final showing with a pre-approval letter from Wells Fargo in hand. The broker stopped negotiating the financing and started negotiating the boat. That is what I needed. Three days from application to funding.</p>
         <div class="review-meta">
           <div class="review-avatar">EH</div>
           <div class="info">
@@ -3577,7 +3692,7 @@
         </div>
       </div>
 
-      <div class="review-card reveal-on-scroll">
+      <div class="review-card reveal-on-scroll reveal-stagger-2">
         <div class="review-stars">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -3585,7 +3700,7 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="review-quote">First boat purchase. Had no idea what I was doing. The calculator let me figure out what I could actually afford before I wasted anyone's time. Shore Premier came back with a rate the dealer could not match. Simple process from start to finish.</p>
+        <p class="review-quote">First boat purchase. Had no idea what I was doing. The calculator let me figure out what I could actually afford before I wasted anyone's time. Shore Premier came back with a rate I was happy with. Simple process from start to finish.</p>
         <div class="review-meta">
           <div class="review-avatar">DK</div>
           <div class="info">
@@ -3605,19 +3720,19 @@
 <!-- ============ PROOF NUMBERS ============ -->
 <section class="shell">
   <div class="proof-row">
-    <div class="proof-stat">
+    <div class="proof-stat reveal-on-scroll reveal-stagger">
       <div class="n">$50K to $50M</div>
       <div class="l">Loan Range</div>
     </div>
-    <div class="proof-stat">
+    <div class="proof-stat reveal-on-scroll reveal-stagger-1">
       <div class="n">60 sec</div>
       <div class="l">Average Match Time</div>
     </div>
-    <div class="proof-stat">
+    <div class="proof-stat reveal-on-scroll reveal-stagger-2">
       <div class="n">4 to 14 days</div>
       <div class="l">Funding Window</div>
     </div>
-    <div class="proof-stat">
+    <div class="proof-stat reveal-on-scroll reveal-stagger-3">
       <div class="n">Fully Digital</div>
       <div class="l">No Email Chains, No Phone Tag</div>
     </div>
@@ -3633,7 +3748,7 @@
   </div>
 
   <div class="hiw-grid">
-    <div class="hiw-card reveal-on-scroll">
+    <div class="hiw-card reveal-on-scroll reveal-stagger">
       <div class="hiw-number">1</div>
       <h3 class="h3">Calculate and apply</h3>
       <p>Enter your boat details and financial profile. Around two minutes total. Credit check is soft only, so your score is not affected.</p>
@@ -3643,7 +3758,7 @@
       </div>
     </div>
 
-    <div class="hiw-card reveal-on-scroll">
+    <div class="hiw-card reveal-on-scroll reveal-stagger-1">
       <div class="hiw-number">2</div>
       <h3 class="h3">Get matched</h3>
       <p>EasyFund finds you a lender match from our network based on your credit profile, vessel type, and loan size. The full match details are revealed once you complete the application.</p>
@@ -3653,7 +3768,7 @@
       </div>
     </div>
 
-    <div class="hiw-card reveal-on-scroll">
+    <div class="hiw-card reveal-on-scroll reveal-stagger-2">
       <div class="hiw-number">3</div>
       <h3 class="h3">Receive your pre-approval</h3>
       <p>Complete the full application to receive your pre-approval letter within 24 hours. Bring it to the dealer when negotiating the purchase price.</p>
@@ -3667,21 +3782,31 @@
 
 <!-- ============ COMPARE BAND ============ -->
 <section class="shell block">
-  <div class="compare-band">
+  <div class="compare-band reveal-on-scroll">
     <div class="compare-grid">
       <div>
         <div class="compare-eyebrow">A smarter way to finance</div>
         <h2 class="compare-h2">What you see first is not always your best option.</h2>
         <p class="lede-dark">Most yacht buyers accept the first financing option put in front of them. EasyFund widens that view. One short application connects you with lenders across our network so you see your real range before you commit. Many buyers find they save <strong>tens of thousands of dollars</strong> over the life of the loan, simply by comparing.</p>
 
-        <!-- Match-or-better promise -->
-        <div class="promise-card">
-          <div class="promise-badge">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
-          </div>
-          <div class="promise-content">
+        <!-- Two-part guarantee: rate match + credit protection -->
+        <div class="promise-card promise-card-dual">
+          <div class="promise-header">
+            <div class="promise-badge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            </div>
             <div class="promise-title">The EasyFund Match Promise</div>
-            <p class="promise-text">If a lender in our network cannot meet or beat your written quote from any other source, we waive your application and processing fees. Worth around $1,000.</p>
+          </div>
+
+          <div class="promise-parts">
+            <div class="promise-part">
+              <div class="promise-part-label">Rate guarantee</div>
+              <p class="promise-part-text">If our lender network cannot match or beat your written quote from any other source, we waive your application and processing fees.</p>
+            </div>
+            <div class="promise-part">
+              <div class="promise-part-label">Credit guarantee</div>
+              <p class="promise-part-text">Your credit score is untouched from application through match. No hard pull until you select a lender.</p>
+            </div>
           </div>
         </div>
       </div>
@@ -3693,9 +3818,9 @@
           <div style="text-align: center;">EasyFund</div>
         </div>
         <div class="compare-row">
-          <div class="col-label">Markup on lender rate</div>
-          <div class="col-them">1.0 to 2.0%</div>
-          <div class="col-us us-accent">None</div>
+          <div class="col-label">Rate source</div>
+          <div class="col-them">Single channel</div>
+          <div class="col-us us-accent">Full network</div>
         </div>
         <div class="compare-row">
           <div class="col-label">Soft-pull rate check</div>
@@ -3732,7 +3857,7 @@
 
 <!-- ============ PERSONAL FINANCIAL STATEMENT ============ -->
 <section class="shell block">
-  <div class="pfs-card">
+  <div class="pfs-card reveal-on-scroll">
     <div class="pfs-inner">
       <div class="pfs-left">
         <div class="pfs-eyebrow">Optional, but Recommended</div>
@@ -3846,7 +3971,7 @@
 <section class="shell block">
   <div class="final-cta reveal-on-scroll">
     <h2 class="h2">Get pre-approved in 60 seconds.</h2>
-    <p>Soft credit check only, zero impact to your score. Because your time is worth more than a call center holding line.</p>
+    <p>Soft credit check only, zero impact to your score. See your rate range before you give up a phone number.</p>
     <div class="final-cta-buttons">
       <a href="#" onclick="goToStage(1); return false;" class="btn btn-primary btn-lg">
         Check my rate
@@ -4751,16 +4876,36 @@
   });
   resetIdleTimer();
 
-  // Scroll reveals
+  // Scroll reveals + number count-up.
+  // Elements with .reveal-on-scroll fade-and-rise into view.
+  // Elements with data-count-to animate their numeric value up
+  // from 0 on first visibility.
   const io = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible');
+
+        // Count-up: animate number from 0 to target
+        if (entry.target.hasAttribute('data-count-to')) {
+          const target = parseInt(entry.target.getAttribute('data-count-to'), 10);
+          const duration = parseInt(entry.target.getAttribute('data-count-duration') || '1200', 10);
+          const start = performance.now();
+          function step(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            // Ease-out cubic for a gentle deceleration
+            const eased = 1 - Math.pow(1 - progress, 3);
+            entry.target.textContent = Math.round(target * eased).toString();
+            if (progress < 1) requestAnimationFrame(step);
+            else entry.target.textContent = target.toString();
+          }
+          requestAnimationFrame(step);
+        }
+
         io.unobserve(entry.target);
       }
     });
   }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal-on-scroll').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal-on-scroll, [data-count-to]').forEach(el => io.observe(el));
 </script>
 
 </body>
